@@ -75,4 +75,21 @@
     <string name="accessibility_quick_settings_live_display_changed_day">Hiển Thị Linh Hoạt đã đổi sang chế độ ban ngày.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">Hiển Thị Linh Hoạt thay đổi chế độ ban đêm.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">Hiển Thị Linh Hoạt đã đổi sang chế độ ngoài trời.</string>
+
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">Phai màu</string>
+    <string name="animation_slide_right">Trượt sang phải</string>
+    <string name="animation_slide_left">Trượt sang trái</string>
+    <string name="animation_slide_right_no_fade">Trượt sang phải (Không phai)</string>
+    <string name="animation_slide_left_no_fade">Trượt sang trái (Không phai)</string>
+    <string name="animation_slide_up">Trượt ở phía dưới</string>
+    <string name="animation_slide_down">Trượt trên cùng</string>
+    <string name="animation_default">Mặc định</string>
+    <string name="animation_translucent">Trong suốt</string>
+    <string name="animation_grow_shrink">Phát triển trong (Hàng đầu)</string>
+    <string name="animation_grow_shrink_center">Phát triển tại (Trung tâm)</string>
+    <string name="animation_grow_shrink_bottom">Phát triển trong (Dưới cùng)</string>
+    <string name="animation_grow_shrink_left">Lớn lên (Trái)</string>
+    <string name="animation_grow_shrink_right">Lớn lên (Phải)</string>
+    <string name="action_null">Trống</string>
 </resources>
