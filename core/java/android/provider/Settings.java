@@ -4900,6 +4900,12 @@ public final class Settings {
         public static final String LOCKSCREEN_INFO = "lockscreen_info";
 		
          /**
+         * Whether to show media art on lockscreen
+         * @hide
+         */
+        public static final String LOCKSCREEN_MEDIA_METADATA = "lockscreen_media_metadata";
+
+         /**
          * modify how the album art shows up on lockscreen
          * 0 - default
          * 1 - grayscale
