@@ -4431,6 +4431,12 @@ public final class Settings {
          */
         public static final String VIBRATE_ON_CALLWAITING = "vibrate_on_callwaiting";
 
+         /**
+         * Whether to enable the pixel navbar animation
+         * @hide
+         */
+        public static final String PIXEL_NAV_ANIMATION = "pixel_nav_animation";
+
          /** @hide */
         private static final Validator VIBRATE_ON_CALLWAITING_VALIDATOR = BOOLEAN_VALIDATOR;
 
