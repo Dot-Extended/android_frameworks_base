@@ -216,4 +216,8 @@
 	
 	<!-- OneHand mode QS tile -->
     <string name="qs_onehand_label">Chế độ một tay</string>
+	
+	 <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Điểm ảnh thông minh</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Tự động bật điểm ảnh thông minh</string>
 </resources>
