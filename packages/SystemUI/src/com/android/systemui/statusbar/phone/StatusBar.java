@@ -2234,8 +2234,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     public void onColorsChanged(ColorExtractor extractor, int which) {
         updateTheme();
     }
-
-    // Check for the dark system theme
+     // Check for the dark system theme
     public boolean isUsingDarkTheme() {
         return ThemeAccentUtils.isUsingDarkTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
     }
@@ -2266,6 +2265,18 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     public void stockSwitchStyle() {
         ThemeAccentUtils.stockSwitchStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
+    }
+    
+    // Switches qs header style from stock to custom
+    public void updateQSHeaderStyle() {
+        int qsHeaderStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.QS_HEADER_STYLE, 0, mLockscreenUserManager.getCurrentUserId());
+        ThemeAccentUtils.updateQSHeaderStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), qsHeaderStyle);
+    }
+
+    // Unload all qs header styles back to stock
+    public void stockQSHeaderStyle() {
+        ThemeAccentUtils.stockQSHeaderStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
     }
 
     @Nullable
@@ -5460,6 +5471,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.SWITCH_STYLE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_HEADER_STYLE),
+                    false, this, UserHandle.USER_ALL);
 	    }
 
 
@@ -5501,6 +5515,10 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.SWITCH_STYLE))) {
                 stockSwitchStyle();
                 updateSwitchStyle();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.QS_HEADER_STYLE))) {
+                stockQSHeaderStyle();
+                updateQSHeaderStyle();
             }
         }
 
