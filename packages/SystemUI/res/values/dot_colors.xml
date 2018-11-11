@@ -72,7 +72,7 @@
     <color name="status_bar_carrier_color">#FFFFFFFF</color>
  
     <!-- QS -->
-    <color name="qs_status_bar_background">#ff000000</color>
+    <color name="quick_settings_status_bar_background_color">#ff000000</color>
 	
 	<!-- Screenshot action colors -->
     <color name="screenshot_flash_color">#b3adadad</color> <!-- light grey with some transparency -->
