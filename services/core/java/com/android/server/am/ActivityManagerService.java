@@ -27401,6 +27401,11 @@ public class ActivityManagerService extends IActivityManager.Stub
             }
         }
     }
+    
+	Context getContext() {
+        return mContext;
+    }
+
     @Override
     public boolean shouldForceCutoutFullscreen(String packageName) {
         synchronized (this) {
@@ -27439,5 +27444,4 @@ public class ActivityManagerService extends IActivityManager.Stub
             return mIsSwipeToScrenshotEnabled && SystemProperties.getBoolean("sys.android.screenshot", false);
         }
     }
-
-}
+		}
