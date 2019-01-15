@@ -140,6 +140,8 @@
 	<java-symbol type="string" name="config_alternativeDeviceKeyHandlerClass" />
 	
 	 <!-- System fonts -->
-   <java-symbol type="array" name="config_fontPackages" />
-
+        <java-symbol type="array" name="config_fontPackages" />
+       
+        <!-- Gradiant LS clock -->
+        <java-symbol type="color" name="bootleg_accent_gradient_end_color" />
 </resources>
