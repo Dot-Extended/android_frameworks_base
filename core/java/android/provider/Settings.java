@@ -4850,7 +4850,16 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_INFO = "lockscreen_info";
 		
-        /**
+         /**
+         * modify how the album art shows up on lockscreen
+         * 0 - default
+         * 1 - grayscale
+         * 2 - blurry
+         * @hide
+         */
+        public static final String LOCKSCREEN_ALBUM_ART_FILTER = "lockscreen_album_art_filter";
+        
+         /**
          * Select which lockscreen clock style to display
          * @hide
          */
