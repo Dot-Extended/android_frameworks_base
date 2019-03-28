@@ -144,4 +144,8 @@
        
         <!-- Gradiant LS clock -->
         <java-symbol type="color" name="bootleg_accent_gradient_end_color" />
+
+        <!-- Smart charging battery percentage -->
+        <java-symbol type="integer" name="config_smartChargingBatteryLevel" />
+
 </resources>

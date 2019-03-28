@@ -43,6 +43,7 @@ import android.net.Uri;
 import android.os.BatteryManager;
 import android.os.BatteryManagerInternal;
 import android.os.Binder;
+import android.os.FileUtils;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.IPowerManager;
@@ -102,6 +103,7 @@ import com.android.server.power.batterysaver.BatterySaverStateMachine;
 import com.android.server.power.batterysaver.BatterySavingStats;
 
 import java.io.FileDescriptor;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -199,6 +201,11 @@ public final class PowerManagerService extends SystemService
 
     // System Property indicating that retail demo mode is currently enabled.
     private static final String SYSTEM_PROPERTY_RETAIL_DEMO_ENABLED = "sys.retaildemo.enabled";
+
+    // Smart charging: sysfs node of charger
+    private static final String BATTERY_CHARGER_PATH =
+            "/sys/class/power_supply/battery/battery_charging_enabled";
+    private static final String CHARGER_PATH = "/sys/class/power_supply/battery/charging_enabled";
 
     // Possible reasons for shutting down for use in data/misc/reboot/last_shutdown_reason
     private static final String REASON_SHUTDOWN = "shutdown";
@@ -495,6 +502,16 @@ public final class PowerManagerService extends SystemService
 
     // The screen state to use while dozing.
     private int mDozeScreenStateOverrideFromDreamManager = Display.STATE_UNKNOWN;
+
+    // Smart charging
+    private boolean mSmartChargingEnabled;
+    private int mSmartChargingLevel;
+    private int mSmartChargingLevelDefaultConfig;
+    // Handle charger
+    private boolean mUseCharger = true;
+    // Handle battery charging, when false the charger will keep the
+    // battery at the current level
+    private boolean mChargeBattery = true;
 
     // The screen brightness to use while dozing.
     private int mDozeScreenBrightnessOverrideFromDreamManager = PowerManager.BRIGHTNESS_DEFAULT;
@@ -955,6 +972,12 @@ public final class PowerManagerService extends SystemService
         resolver.registerContentObserver(Settings.Global.getUriFor(
                 Settings.Global.DEVICE_DEMO_MODE),
                 false, mSettingsObserver, UserHandle.USER_SYSTEM);
+        resolver.registerContentObserver(Settings.System.getUriFor(
+                Settings.System.SMART_CHARGING),
+                false, mSettingsObserver, UserHandle.USER_ALL);
+        resolver.registerContentObserver(Settings.System.getUriFor(
+                Settings.System.SMART_CHARGING_LEVEL),
+                false, mSettingsObserver, UserHandle.USER_ALL);
         resolver.registerContentObserver(Settings.Global.getUriFor(
                 Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED),
                 false, mSettingsObserver, UserHandle.USER_ALL);
@@ -1051,7 +1074,9 @@ public final class PowerManagerService extends SystemService
                     com.android.internal.R.bool.config_button_brightness_support);
         mCustomButtonBrightness = resources.getInteger(
                     com.android.internal.R.integer.config_button_brightness_default);
-    }
+        mSmartChargingLevelDefaultConfig = resources.getInteger(
+                com.android.internal.R.integer.config_smartChargingBatteryLevel);       
+     }
 
     private void updateSettingsLocked() {
         final ContentResolver resolver = mContext.getContentResolver();
@@ -1079,6 +1104,11 @@ public final class PowerManagerService extends SystemService
         mTheaterModeEnabled = Settings.Global.getInt(mContext.getContentResolver(),
                 Settings.Global.THEATER_MODE_ON, 0) == 1;
         mAlwaysOnEnabled = mAmbientDisplayConfiguration.alwaysOnEnabled(UserHandle.USER_CURRENT);
+        mSmartChargingEnabled = Settings.System.getInt(resolver,
+                Settings.System.SMART_CHARGING, 0) == 1;
+        mSmartChargingLevel = Settings.System.getInt(resolver,
+                Settings.System.SMART_CHARGING_LEVEL,
+                mSmartChargingLevelDefaultConfig);
         mDozeOnChargeEnabled = Settings.System.getIntForUser(resolver,
                 Settings.System.DOZE_ON_CHARGE, 0, UserHandle.USER_CURRENT) != 0;
         if (mSupportsDoubleTapWakeConfig) {
@@ -1121,6 +1151,7 @@ public final class PowerManagerService extends SystemService
     private void handleSettingsChangedLocked() {
         updateSettingsLocked();
         updatePowerStateLocked();
+        updateSmartChargingStatus();
     }
 
     private void acquireWakeLockInternal(IBinder lock, int flags, String tag, String packageName,
@@ -1877,6 +1908,40 @@ public final class PowerManagerService extends SystemService
             }
 
             mBatterySaverStateMachine.setBatteryStatus(mIsPowered, mBatteryLevel, mBatteryLevelLow);
+            updateSmartChargingStatus();
+        }
+    }
+
+    private void updateSmartChargingStatus() {
+        if (mIsPowered || (mUseCharger == false)) {
+            boolean allowBatteryCharging = true;
+            boolean allowCharger = true;
+            if (mSmartChargingEnabled && (mBatteryLevel >= mSmartChargingLevel)) {
+                if (mBatteryLevel > mSmartChargingLevel) {
+                    allowCharger = false;
+                }
+                allowBatteryCharging = false;
+            }
+
+            if (mChargeBattery != allowBatteryCharging) {
+                try {
+                    mChargeBattery = allowBatteryCharging;
+                    FileUtils.stringToFile(BATTERY_CHARGER_PATH, mChargeBattery ? "1" : "0");
+                } catch (Exception e) {
+                    Slog.e(TAG, "failed to write to " + BATTERY_CHARGER_PATH);
+                    mChargeBattery = !mChargeBattery;
+                }
+            }
+
+            if (mUseCharger != allowCharger) {
+                try {
+                    mUseCharger = allowCharger;
+                    FileUtils.stringToFile(CHARGER_PATH, mUseCharger ? "1" : "0");
+                } catch (Exception e) {
+                    Slog.e(TAG, "failed to write to " + CHARGER_PATH);
+                    mUseCharger = !mUseCharger;
+                }
+            }
         }
     }
 
