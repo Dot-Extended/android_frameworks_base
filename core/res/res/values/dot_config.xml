@@ -1,3 +1,4 @@
+<<<<<<< HEAD:core/res/res/values/dot_config.xml
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (c) 2018 Project dotOS
@@ -130,4 +131,6 @@
      <!-- Smart charging battery percentage -->
     <integer name="config_smartChargingBatteryLevel">80</integer>
 
+    <!-- Whether to show multiuser icon on keyguard -->
+    <bool name="config_showMultiuserIconKeyguard">true</bool>
 </resources>
