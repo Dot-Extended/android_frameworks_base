@@ -144,7 +144,7 @@ import com.android.internal.statusbar.NotificationVisibility;
 import com.android.internal.statusbar.StatusBarIcon;
 import com.android.internal.utils.ActionConstants;
 import com.android.internal.utils.ActionUtils;
-import com.android.internal.utils.ImageHelper;
+import com.android.internal.util.dotos.ImageHelper;
 import com.android.internal.utils.SmartPackageMonitor;
 import com.android.internal.utils.SmartPackageMonitor.PackageChangedListener;
 import com.android.internal.utils.SmartPackageMonitor.PackageState;
