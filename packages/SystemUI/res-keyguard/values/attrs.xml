@@ -39,4 +39,8 @@
     </declare-styleable>
 
     <attr name="passwordStyle" format="reference" />
+  
+   <declare-styleable name="CustomTextClock">
+        <attr name="HandType"/>
+    </declare-styleable>
 </resources>

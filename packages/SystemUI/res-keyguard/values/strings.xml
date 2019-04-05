@@ -50,6 +50,8 @@
     <!-- Instructions telling the user to enter their pattern to unlock the keyguard [CHAR LIMIT=30] -->
     <string name="keyguard_enter_your_pattern">Enter your Pattern</string>
 
+    <string name="custom_text_clock_top_text_default">It\s</string>
+
     <!-- Instructions telling the user to enter their text password to unlock the keyguard [CHAR LIMIT=30] -->
     <string name="keyguard_enter_your_password">Enter your Password</string>
 
