@@ -36,5 +36,4 @@
     <color name="clock_gradient_general_dark_overlay">@*android:color/background_material_dark</color>
     <color name="clock_gradient_full_clock_text_color">@*android:color/background_material_dark</color>
 
-    <color name="custom_text_clock_top_color">#f5c887</color>
-</resources>
+   </resources>
