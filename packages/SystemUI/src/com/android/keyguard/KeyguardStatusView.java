@@ -921,11 +921,11 @@ public class KeyguardStatusView extends GridLayout implements
                 mDotClockView.setVisibility(View.GONE);
                 mSpectrumClockView.setVisibility(View.GONE);
                 mSneekyClockView.setVisibility(View.GONE);
+                mTextClock.setVisibility(View.GONE);  
                 mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
         getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_date_padding), 
         getResources().getDisplayMetrics()),0,0
-                 mTextClock.setVisibility(View.GONE);  
-                );
+                 );
                 break;
             case 16: // Monochrome gradient, like the qs tile
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -943,11 +943,11 @@ public class KeyguardStatusView extends GridLayout implements
                 mCustomNumClockView.setVisibility(View.GONE);
                 mDotClockView.setVisibility(View.GONE);
                 mSpectrumClockView.setVisibility(View.GONE);
+                mTextClock.setVisibility(View.GONE);
                 mSneekyClockView.setVisibility(View.GONE);
                 mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
         getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_date_padding), 
         getResources().getDisplayMetrics()),0,0
-                mTextClock.setVisibility(View.GONE);
                 );
                 break;
          case 17: // custom text clock
