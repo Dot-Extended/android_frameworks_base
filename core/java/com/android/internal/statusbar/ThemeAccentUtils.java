@@ -82,14 +82,26 @@ public class ThemeAccentUtils {
     };
 
     private static final String[] QS_TILE_THEMES = {
-        "default", // 0
-        "com.android.systemui.qstile.square", // 1
-        "com.android.systemui.qstile.roundedsquare", // 2
-        "com.android.systemui.qstile.squircle", // 3
-        "com.android.systemui.qstile.teardrop", // 4
-        "com.android.systemui.qstile.circlegradient", //5
-        "com.android.systemui.qstile.circleoutline", //6
-        "com.android.systemui.qstile.justicons", //7
+        "com.android.systemui.qstile.default", // 0
+        "com.android.systemui.qstile.circlegradient", // 1
+        "com.android.systemui.qstile.circletrim", // 2
+        "com.android.systemui.qstile.cookie", // 3
+        "com.android.systemui.qstile.dottedcircle", // 4
+        "com.android.systemui.qstile.dualtonecircle", // 5
+        "com.android.systemui.qstile.dualtonecircletrim", // 6
+        "com.android.systemui.qstile.ink", // 7
+        "com.android.systemui.qstile.inkdrop", // 8
+        "com.android.systemui.qstile.mountain", // 9
+        "com.android.systemui.qstile.ninja", // 10
+        "com.android.systemui.qstile.oreo", // 11
+        "com.android.systemui.qstile.oreocircletrim", // 12
+        "com.android.systemui.qstile.oreosquircletrim", // 13
+        "com.android.systemui.qstile.pokesign", // 14
+        "com.android.systemui.qstile.squaremedo", // 15
+        "com.android.systemui.qstile.squircle", // 16
+        "com.android.systemui.qstile.squircletrim", // 17
+        "com.android.systemui.qstile.teardrop", // 18
+        "com.android.systemui.qstile.wavey", // 19
     };
 
     private static final String STOCK_DARK_THEME = "com.android.systemui.theme.dark";
