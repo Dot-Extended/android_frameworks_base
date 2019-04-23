@@ -1797,7 +1797,7 @@ public class NotificationPanelView extends PanelView implements
         mKeyguardStatusBar.setAlpha(Math.min(getKeyguardContentsAlpha(), alphaQsExpansion)
                 * mKeyguardStatusBarAnimateAlpha);
         mKeyguardStatusBar.setVisibility(mKeyguardStatusBar.getAlpha() != 0f
-                && !mDozing ? VISIBLE : INVISIBLE);
+                 ? VISIBLE : INVISIBLE);
     }
 
     private void updateKeyguardBottomAreaAlpha() {
@@ -2311,16 +2311,7 @@ public class NotificationPanelView extends PanelView implements
     }
 
     private void updateDozingVisibilities(boolean animate) {
-        if (mDozing) {
-            mKeyguardStatusBar.setVisibility(View.INVISIBLE);
-            mKeyguardBottomArea.setDozing(mDozing, animate);
-        } else {
-            mKeyguardStatusBar.setVisibility(View.VISIBLE);
-            mKeyguardBottomArea.setDozing(mDozing, animate);
-            if (animate) {
-                animateKeyguardStatusBarIn(DOZE_ANIMATION_DURATION);
-            }
-        }
+        mKeyguardBottomArea.setDozing(mDozing, animate);
     }
 
     @Override
@@ -2800,6 +2791,7 @@ public class NotificationPanelView extends PanelView implements
     private void setDarkAmount(float linearAmount, float amount) {
         mInterpolatedDarkAmount = amount;
         mLinearDarkAmount = linearAmount;
+        mKeyguardStatusBar.setDarkAmount(mInterpolatedDarkAmount);
         mKeyguardStatusView.setDarkAmount(mInterpolatedDarkAmount);
         mKeyguardBottomArea.setDarkAmount(mInterpolatedDarkAmount);
         positionClockAndNotifications();
@@ -2831,6 +2823,7 @@ public class NotificationPanelView extends PanelView implements
     }
 
     public void dozeTimeTick() {
+        mKeyguardStatusBar.dozeTimeTick();
         mKeyguardStatusView.dozeTimeTick();
         mKeyguardBottomArea.dozeTimeTick();
         if (mInterpolatedDarkAmount > 0) {
