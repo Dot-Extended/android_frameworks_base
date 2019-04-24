@@ -4427,6 +4427,11 @@ public final class Settings {
          * @hide
          */
         public static final String SYSTEM_THEME_STYLE = "system_theme_style";
+         
+        /**
+         * @hide
+         */
+        public static final String SWITCH_STYLE = "switch_style";
 
         /**
          * Select various accents to go along with system themes
