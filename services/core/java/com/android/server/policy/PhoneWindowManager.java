@@ -1947,9 +1947,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         @Override
         public void run() {
-            mScreenshotHelper.takeScreenshot(mScreenshotType,
-                    mStatusBar != null && mStatusBar.isVisibleLw(),
-                    mNavigationBar != null && mNavigationBar.isVisibleLw(), mHandler);
+            if (!mPocketLockShowing){
+                mScreenshotHelper.takeScreenshot(mScreenshotType,
+                        mStatusBar != null && mStatusBar.isVisibleLw(),
+                        mNavigationBar != null && mNavigationBar.isVisibleLw(), mHandler);
+            }
         }
     }
 
