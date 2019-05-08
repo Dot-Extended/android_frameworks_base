@@ -120,7 +120,7 @@ public class GpsNetInitiatedHandler {
     // Set to true if string from HAL is encoded as Hex, e.g., "3F0039"
     static private boolean mIsHexInput = true;
 
-    // End time of emergency call, and extension, if set
+     // End time of emergency call, and extension, if set
     private long mCallEndElapsedRealtimeMillis = 0;
     private long mEmergencyExtensionMillis = 0;
 
@@ -245,8 +245,11 @@ public class GpsNetInitiatedHandler {
      */
     public boolean getInEmergency() {
         boolean isInEmergencyExtension =
-                (SystemClock.elapsedRealtime() - mCallEndElapsedRealtimeMillis) <
-                        mEmergencyExtensionMillis;
+
+                (mCallEndElapsedRealtimeMillis > 0)
+                && ((SystemClock.elapsedRealtime() - mCallEndElapsedRealtimeMillis)
+                        < mEmergencyExtensionMillis);
+
         boolean isInEmergencyCallback = mTelephonyManager.getEmergencyCallbackMode();
         return mIsInEmergencyCall || isInEmergencyCallback || isInEmergencyExtension;
     }

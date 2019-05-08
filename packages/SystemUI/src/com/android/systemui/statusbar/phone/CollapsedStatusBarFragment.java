@@ -24,9 +24,11 @@ import android.app.StatusBarManager;
 import android.content.ContentResolver;
 import android.database.ContentObserver;
 import android.os.Bundle;
+
 import android.os.Handler;
 import android.os.UserHandle;
 import android.provider.Settings;
+
 import android.os.Parcelable;
 import android.util.SparseArray;
 import android.view.LayoutInflater;

@@ -414,6 +414,7 @@ public class KeyguardIndicationController {
         final boolean hasChargingTime = chargingTimeRemaining > 0;
 
         int chargingId;
+
         switch (mChargingSpeed) {
             case KeyguardUpdateMonitor.BatteryStatus.CHARGING_FAST:
                 chargingId = hasChargingTime
@@ -440,6 +441,30 @@ public class KeyguardIndicationController {
                         ? R.string.keyguard_indication_charging_time
                         : R.string.keyguard_plugged_in;
                 break;
+
+        if (mPowerPluggedInWired) {
+            switch (mChargingSpeed) {
+                case KeyguardUpdateMonitor.BatteryStatus.CHARGING_FAST:
+                    chargingId = hasChargingTime
+                            ? R.string.keyguard_indication_charging_time_fast
+                            : R.string.keyguard_plugged_in_charging_fast;
+                    break;
+                case KeyguardUpdateMonitor.BatteryStatus.CHARGING_SLOWLY:
+                    chargingId = hasChargingTime
+                            ? R.string.keyguard_indication_charging_time_slowly
+                            : R.string.keyguard_plugged_in_charging_slowly;
+                    break;
+                default:
+                    chargingId = hasChargingTime
+                            ? R.string.keyguard_indication_charging_time
+                            : R.string.keyguard_plugged_in;
+                    break;
+            }
+        } else {
+            chargingId = hasChargingTime
+                    ? R.string.keyguard_indication_charging_time_wireless
+                    : R.string.keyguard_plugged_in_wireless;
+
         }
 
         String batteryInfo = "";
