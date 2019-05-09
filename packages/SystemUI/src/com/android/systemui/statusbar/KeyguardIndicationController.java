@@ -413,6 +413,7 @@ public class KeyguardIndicationController {
         }
         final boolean hasChargingTime = chargingTimeRemaining > 0;
 
+        int chargingId;
         if (mPowerPluggedInWired) {
             switch (mChargingSpeed) {
                 case KeyguardUpdateMonitor.BatteryStatus.CHARGING_FAST:
