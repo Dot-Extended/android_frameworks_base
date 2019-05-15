@@ -166,6 +166,9 @@
 
     <!-- Should we filter any display modes which are unampped? -->
     <bool name="config_filterDisplayModes">false</bool>
+    
+   <!-- Value for overriding outdoor capable mode for LiveDisplay tile -->
+    <bool name="config_outdoorCapable">false</bool>
 
     <!-- Whether device has a physical display cutout -->
     <bool name="config_physicalDisplayCutout">false</bool>
