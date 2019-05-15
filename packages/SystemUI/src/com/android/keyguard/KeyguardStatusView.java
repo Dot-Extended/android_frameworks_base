@@ -970,6 +970,8 @@ public class KeyguardStatusView extends GridLayout implements
 
         mShowClock = Settings.System.getIntForUser(resolver,
                 Settings.System.LOCKSCREEN_CLOCK, 1, UserHandle.USER_CURRENT) == 1;
+        mShowInfo = Settings.System.getIntForUser(resolver,
+                Settings.System.LOCKSCREEN_INFO, 1, UserHandle.USER_CURRENT) == 1;
         mClockSelection = Settings.System.getIntForUser(resolver,
                 Settings.System.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT);
 
@@ -1067,6 +1069,7 @@ public class KeyguardStatusView extends GridLayout implements
             mDotClockView.setVisibility(View.GONE);
             mSpectrumClockView.setVisibility(View.GONE);
             mSneekyClockView.setVisibility(View.GONE);
+	    mTextClock.setVisibility(View.GONE);
         } else {
             setStyle();
             refreshTime();
