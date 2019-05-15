@@ -47,6 +47,7 @@ import android.net.NetworkInfo;
 import com.android.internal.R;
 
 import java.util.List;
+import java.util.Locale;
 
 import com.android.internal.statusbar.IStatusBarService;
 
@@ -117,6 +118,12 @@ public class DOTUtils {
         return activeNetwork != null && activeNetwork.isConnectedOrConnecting() && mobile.isConnected();
     }
 
+    // Check for Chinese language
+    public static boolean isChineseLanguage() {
+       return Resources.getSystem().getConfiguration().locale.getLanguage().startsWith(
+               Locale.CHINESE.getLanguage());
+        
+    }
     // Check to see if device supports the Fingerprint scanner
     public static boolean hasFingerprintSupport(Context context) {
         FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
