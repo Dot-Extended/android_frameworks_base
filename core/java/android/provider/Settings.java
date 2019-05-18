@@ -4727,6 +4727,13 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * Whether to enable gaming mode or not
+         *
+         * @hide
+         */
+        public static final String ENABLE_GAMING_MODE = "enable_gaming_mode";
+
+        /**
          * Force an Ambient notification when a new media track is being played
          * 0 - disabled
         * 1 - show track info within normal Ambient Display and force a new Ambient clean layout when skipping tracks
