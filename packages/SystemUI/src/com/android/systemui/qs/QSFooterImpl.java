@@ -254,11 +254,11 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
     }
 
     private void updateVisibilities() {
+        mSettingsButton.setVisibility(View.VISIBLE);
         mSettingsContainer.setVisibility(mQsDisabled ? View.GONE : View.VISIBLE);
         final boolean isDemo = UserManager.isDeviceInDemoMode(mContext);
         mMultiUserSwitch.setVisibility(showUserSwitcher(isDemo) ? View.VISIBLE : View.INVISIBLE);
         mEdit.setVisibility(isDemo || !mExpanded ? View.INVISIBLE : View.VISIBLE);
-        mSettingsButton.setVisibility(isDemo || !mExpanded ? View.INVISIBLE : View.VISIBLE);
     }
 
     private boolean showUserSwitcher(boolean isDemo) {
@@ -301,12 +301,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
 
     @Override
     public void onClick(View v) {
-        // Don't do anything until view are unhidden
-        if (!mExpanded) {
-            return;
-        }
-
-        if (v == mSettingsButton) {
+         if (v == mSettingsButton) {
             if (!Dependency.get(DeviceProvisionedController.class).isCurrentUserSetup()) {
                 // If user isn't setup just unlock the device and dump them back at SUW.
                 mActivityStarter.postQSRunnableDismissingKeyguard(() -> { });
