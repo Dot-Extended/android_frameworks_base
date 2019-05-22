@@ -26,5 +26,13 @@
         <item name="android:textSize">@dimen/status_bar_carrier_height</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/status_bar_carrier_color</item>
-    </style>	  
+    </style>
+	
+    	<!-- Battery percentage -->
+    <style name="BatteryPercentageTextStyle">
+        <item name="android:textSize">@dimen/qs_time_expanded_size</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textStyle">normal</item>
+	</style>
 </resources>
