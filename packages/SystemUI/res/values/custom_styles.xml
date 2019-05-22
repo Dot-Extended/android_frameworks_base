@@ -6,4 +6,20 @@
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:layout_centerVertical">true</item>
     </style>
+
+    <!-- Carrier Label -->
+    <style name="TextAppearance.StatusBar.CarrierLabel" parent="@*android:style/TextAppearance.StatusBar.Icon">
+        <item name="android:textSize">14dp</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!-- Battery percentage -->
+    <style name="BatteryPercentageTextStyle">
+        <item name="android:textSize">@dimen/qs_time_expanded_size</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
 </resources>
