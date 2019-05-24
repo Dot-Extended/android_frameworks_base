@@ -52,6 +52,7 @@
     <color name="quick_settings_theme_tile_black">#000000</color>
     <color name="quick_settings_theme_tile_white">#ffffff</color>
     <color name="quick_settings_theme_tile_qpurple">#B39DDB</color>
+    <color name="quick_settings_theme_tile_qgreen">#1B873B</color>
 
 	<!-- QS tiles Active, Inactive and Unavailable tint (Requires config_enable_qs_tile_tinting bool set to true) -->
     <color name="qs_tiles_active_tint">@*android:color/primary_device_default_settings_light</color>
