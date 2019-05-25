@@ -203,10 +203,9 @@ public final class PowerManagerService extends SystemService
     private static final String SYSTEM_PROPERTY_RETAIL_DEMO_ENABLED = "sys.retaildemo.enabled";
 
     // Smart charging: sysfs node of charger
-    private static final String BATTERY_CHARGER_PATH =
-            "/sys/class/power_supply/battery/battery_charging_enabled";
-    private static final String CHARGER_PATH = "/sys/class/power_supply/battery/charging_enabled";
-
+    private static final String POWER_INTPUT_SUSPEND_NODE =
+            "/sys/class/power_supply/battery/input_suspend";
+			
     // Possible reasons for shutting down for use in data/misc/reboot/last_shutdown_reason
     private static final String REASON_SHUTDOWN = "shutdown";
     private static final String REASON_REBOOT = "reboot";
@@ -506,13 +505,9 @@ public final class PowerManagerService extends SystemService
     // Smart charging
     private boolean mSmartChargingEnabled;
     private int mSmartChargingLevel;
+	private boolean mPowerInputSuspended = false;
     private int mSmartChargingLevelDefaultConfig;
-    // Handle charger
-    private boolean mUseCharger = true;
-    // Handle battery charging, when false the charger will keep the
-    // battery at the current level
-    private boolean mChargeBattery = true;
-
+    
     // The screen brightness to use while dozing.
     private int mDozeScreenBrightnessOverrideFromDreamManager = PowerManager.BRIGHTNESS_DEFAULT;
 
@@ -1913,34 +1908,22 @@ public final class PowerManagerService extends SystemService
     }
 
     private void updateSmartChargingStatus() {
-        if (mIsPowered || (mUseCharger == false)) {
-            boolean allowBatteryCharging = true;
-            boolean allowCharger = true;
-            if (mSmartChargingEnabled && (mBatteryLevel >= mSmartChargingLevel)) {
-                if (mBatteryLevel > mSmartChargingLevel) {
-                    allowCharger = false;
-                }
-                allowBatteryCharging = false;
+         if (mPowerInputSuspended && (mBatteryLevel < mSmartChargingLevel) ||
+            (mPowerInputSuspended && !mSmartChargingEnabled)) {
+            try {
+                FileUtils.stringToFile(POWER_INTPUT_SUSPEND_NODE, "0");
+                mPowerInputSuspended = false;
+            } catch (IOException e) {
+                Slog.e(TAG, "failed to write to " + POWER_INTPUT_SUSPEND_NODE);
             }
-
-            if (mChargeBattery != allowBatteryCharging) {
-                try {
-                    mChargeBattery = allowBatteryCharging;
-                    FileUtils.stringToFile(BATTERY_CHARGER_PATH, mChargeBattery ? "1" : "0");
-                } catch (Exception e) {
-                    Slog.e(TAG, "failed to write to " + BATTERY_CHARGER_PATH);
-                    mChargeBattery = !mChargeBattery;
-                }
-            }
-
-            if (mUseCharger != allowCharger) {
-                try {
-                    mUseCharger = allowCharger;
-                    FileUtils.stringToFile(CHARGER_PATH, mUseCharger ? "1" : "0");
-                } catch (Exception e) {
-                    Slog.e(TAG, "failed to write to " + CHARGER_PATH);
-                    mUseCharger = !mUseCharger;
-                }
+            return;
+        }
+            if (mSmartChargingEnabled && !mPowerInputSuspended && (mBatteryLevel >= mSmartChargingLevel)) {
+            try {
+                FileUtils.stringToFile(POWER_INTPUT_SUSPEND_NODE, "1");
+                mPowerInputSuspended = true;
+            } catch (IOException e) {
+                    Slog.e(TAG, "failed to write to " + POWER_INTPUT_SUSPEND_NODE);
             }
         }
     }
