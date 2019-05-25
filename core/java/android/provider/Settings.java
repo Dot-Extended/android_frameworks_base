@@ -5189,6 +5189,15 @@ public final class Settings {
          */
         public static final String LESS_BORING_HEADS_UP = "less_boring_heads_up";
 		
+		/**
+         * enable or disable single handed mode
+         * @hide
+         */
+        public static final String ONE_HAND_MODE_ENABLED = "one_hand_mode_enabled";
+
+        /** @hide */
+        private static final Validator ONE_HAND_MODE_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.

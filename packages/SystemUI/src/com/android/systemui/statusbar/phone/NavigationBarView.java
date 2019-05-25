@@ -42,6 +42,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemProperties;
+import android.os.UserHandle;
 import android.support.annotation.ColorInt;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -344,7 +345,11 @@ public class NavigationBarView extends FrameLayout implements Navigator, PulseOb
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
-        mSlideTouchEvent.handleTouchEvent(event);
+         boolean onehandedEnabled = Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.ONE_HAND_MODE_ENABLED, 0, UserHandle.USER_CURRENT) == 1;
+        if (onehandedEnabled) {
+            mSlideTouchEvent.handleTouchEvent(event);
+        }
         final boolean deadZoneConsumed = shouldDeadZoneConsumeTouchEvents(event);
         switch (event.getActionMasked()) {
             case ACTION_DOWN:
@@ -370,7 +375,11 @@ public class NavigationBarView extends FrameLayout implements Navigator, PulseOb
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        mSlideTouchEvent.handleTouchEvent(event);
+         boolean onehandEnabled = Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.ONE_HAND_MODE_ENABLED, 0, UserHandle.USER_CURRENT) == 1;
+        if (onehandEnabled) {
+            mSlideTouchEvent.handleTouchEvent(event);
+        }
         shouldDeadZoneConsumeTouchEvents(event);
         if (mGestureHelper.onTouchEvent(event)) {
             return true;
