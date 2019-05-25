@@ -73,5 +73,9 @@
  
     <!-- QS -->
     <color name="qs_status_bar_background">#ff000000</color>
+	
+	<!-- Screenshot action colors -->
+    <color name="screenshot_flash_color">#b3adadad</color> <!-- light grey with some transparency -->
+    <color name="screenshot_background_color">@android:color/black</color>
 </resources>
 
