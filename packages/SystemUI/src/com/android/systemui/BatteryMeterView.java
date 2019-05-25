@@ -75,6 +75,7 @@ public class BatteryMeterView extends LinearLayout implements
     private int mLevel;
     private boolean mForceShowPercent;
 	private boolean misQsbHeader;
+	private int mShowPercent;
     private boolean mShowPercentAvailable;
 	private boolean mPowerSave;
     private boolean mCharging;
@@ -252,7 +253,9 @@ public class BatteryMeterView extends LinearLayout implements
         // text battery will always show percentage
         if (isCircleBattery()
                 || getMeterStyle() == BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT) {
-            setForceShowPercent(pluggedIn);
+            if (!alwaysShowPercentage()) {
+                setForceShowPercent(pluggedIn);
+            }
             // mDrawable.setCharging(pluggedIn) will invalidate the view
         }
 
@@ -307,7 +310,7 @@ public class BatteryMeterView extends LinearLayout implements
          final boolean showing = mBatteryPercentView != null;
         int style = Settings.System.getIntForUser(getContext().getContentResolver(),
                 SHOW_BATTERY_PERCENT, 0, mUser);
-        boolean showAnyway = mForceShowPercent || mPowerSave || mCharging;
+        boolean showAnyway = alwaysShowPercentage() || mPowerSave || mCharging;
         if (showAnyway) style = 1; // Default view
         switch (style) {
             case 1:
@@ -438,6 +441,12 @@ public class BatteryMeterView extends LinearLayout implements
         misQsbHeader = true;
     }
 
+    private boolean alwaysShowPercentage() {
+        return misQsbHeader
+                && (getMeterStyle() == BatteryMeterDrawableBase.BATTERY_STYLE_HIDDEN
+                || (getMeterStyle() != BatteryMeterDrawableBase.BATTERY_STYLE_HIDDEN && mShowPercent == 0/*hidden*/));
+    }
+	
     private void updateBatteryStyle(String styleStr) {
 
         final int style = styleStr == null ?
@@ -445,7 +454,7 @@ public class BatteryMeterView extends LinearLayout implements
         mDrawable.setMeterStyle(style);
 		mStyle = style;
 
-        mForceShowPercent = false;
+        mForceShowPercent = alwaysShowPercentage() ? true : false;
         switch (style) {
             case BatteryMeterDrawableBase.BATTERY_STYLE_TEXT:
                  if (mBatteryIconView != null) {
