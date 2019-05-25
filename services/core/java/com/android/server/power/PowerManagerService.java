@@ -201,11 +201,7 @@ public final class PowerManagerService extends SystemService
 
     // System Property indicating that retail demo mode is currently enabled.
     private static final String SYSTEM_PROPERTY_RETAIL_DEMO_ENABLED = "sys.retaildemo.enabled";
-
-    // Smart charging: sysfs node of charger
-    private static final String POWER_INTPUT_SUSPEND_NODE =
-            "/sys/class/power_supply/battery/input_suspend";
-			
+	
     // Possible reasons for shutting down for use in data/misc/reboot/last_shutdown_reason
     private static final String REASON_SHUTDOWN = "shutdown";
     private static final String REASON_REBOOT = "reboot";
@@ -502,11 +498,6 @@ public final class PowerManagerService extends SystemService
     // The screen state to use while dozing.
     private int mDozeScreenStateOverrideFromDreamManager = Display.STATE_UNKNOWN;
 
-    // Smart charging
-    private boolean mSmartChargingEnabled;
-    private int mSmartChargingLevel;
-	private boolean mPowerInputSuspended = false;
-    private int mSmartChargingLevelDefaultConfig;
     
     // The screen brightness to use while dozing.
     private int mDozeScreenBrightnessOverrideFromDreamManager = PowerManager.BRIGHTNESS_DEFAULT;
@@ -540,7 +531,6 @@ public final class PowerManagerService extends SystemService
     // Some uids have actually changed while mUidsChanging was true.
     private boolean mUidsChanged;
     private QCNsrmPowerExtension qcNsrmPowExt;
-
 
     // True if theater mode is enabled
     private boolean mTheaterModeEnabled;
@@ -614,7 +604,15 @@ public final class PowerManagerService extends SystemService
     private boolean mButtonTimeoutEnabled;
     private int mEvent;
 
-
+    // Smart charging
+    private boolean mSmartChargingEnabled;
+    private int mSmartChargingLevel;
+	private boolean mPowerInputSuspended = false;
+    private int mSmartChargingLevelDefaultConfig;
+    private static String mPowerInputSupsendSysfsNode;
+    private static String mPowerInputSupsendValue;
+    private static String mPowerInputResumeValue;
+	
     /**
      * All times are in milliseconds. These constants are kept synchronized with the system
      * global Settings. Any access to this class or its fields should be done while
@@ -1070,7 +1068,13 @@ public final class PowerManagerService extends SystemService
         mCustomButtonBrightness = resources.getInteger(
                     com.android.internal.R.integer.config_button_brightness_default);
         mSmartChargingLevelDefaultConfig = resources.getInteger(
-                com.android.internal.R.integer.config_smartChargingBatteryLevel);       
+                com.android.internal.R.integer.config_smartChargingBatteryLevel); 
+        mPowerInputSupsendSysfsNode = resources.getString(
+                com.android.internal.R.string.config_SmartChargingSysfsNode);
+        mPowerInputSupsendValue = resources.getString(
+                com.android.internal.R.string.config_SmartChargingSupspendValue);
+        mPowerInputResumeValue = resources.getString(
+                com.android.internal.R.string.config_SmartChargingResumeValue);				
      }
 
     private void updateSettingsLocked() {
@@ -1911,19 +1915,19 @@ public final class PowerManagerService extends SystemService
          if (mPowerInputSuspended && (mBatteryLevel < mSmartChargingLevel) ||
             (mPowerInputSuspended && !mSmartChargingEnabled)) {
             try {
-                FileUtils.stringToFile(POWER_INTPUT_SUSPEND_NODE, "0");
+                FileUtils.stringToFile(mPowerInputSupsendSysfsNode, mPowerInputResumeValue);
                 mPowerInputSuspended = false;
             } catch (IOException e) {
-                Slog.e(TAG, "failed to write to " + POWER_INTPUT_SUSPEND_NODE);
+                Slog.e(TAG, "failed to write to " + mPowerInputSupsendSysfsNode);
             }
             return;
         }
             if (mSmartChargingEnabled && !mPowerInputSuspended && (mBatteryLevel >= mSmartChargingLevel)) {
             try {
-                FileUtils.stringToFile(POWER_INTPUT_SUSPEND_NODE, "1");
+                FileUtils.stringToFile(mPowerInputSupsendSysfsNode, mPowerInputSupsendValue);
                 mPowerInputSuspended = true;
             } catch (IOException e) {
-                    Slog.e(TAG, "failed to write to " + POWER_INTPUT_SUSPEND_NODE);
+                    Slog.e(TAG, "failed to write to " + mPowerInputSupsendSysfsNode);
             }
         }
     }
