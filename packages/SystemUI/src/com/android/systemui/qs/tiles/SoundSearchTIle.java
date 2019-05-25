@@ -17,6 +17,16 @@
 package com.android.systemui.qs.tiles;
 
 import android.content.Context;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.service.quicksettings.Tile;
+import android.widget.Toast;
+
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.dotos.DOTUtils;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -31,6 +41,7 @@ import com.android.systemui.R;
 
 public class SoundSearchTIle extends QSTileImpl<BooleanState> {
 
+
     private final String soundSearchApp = "com.google.android.googlequicksearchbox";
 
     public SoundSearchTIle(QSHost host) {
@@ -39,12 +50,34 @@ public class SoundSearchTIle extends QSTileImpl<BooleanState> {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.EVO;
+
+       return MetricsEvent.DOTEXTRAS;
     }
 
     @Override
     public void handleClick() {
         mHost.collapsePanels();
+
+        // Shazam
+        if (DOTUtils.isPackageInstalled(mContext, "com.shazam.android") || DOTUtils.isPackageInstalled(mContext, "com.shazam.encore.android")) {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.setAction("com.shazam.android.intent.actions.START_TAGGING");
+            mContext.startActivity(intent);
+        // Soundhound
+        } else if (DOTUtils.isPackageInstalled(mContext, "com.melodis.midomiMusicIdentifier.freemium") || DOTUtils.isPackageInstalled(mContext, "com.melodis.midomiMusicIdentifier")) {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.setAction("com.soundhound.android.ID_NOW_EXTERNAL");
+            mContext.startActivity(intent);
+        // Google Search Music
+        } else if (DOTUtils.isPackageInstalled(mContext, "com.google.android.googlequicksearchbox")) {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.setAction("com.google.android.googlequicksearchbox.MUSIC_SEARCH");
+            mContext.startActivity(intent);
+        } else {
+            Toast.makeText(mContext, mContext.getString(
+                    R.string.quick_settings_sound_search_no_app), Toast.LENGTH_LONG).show();
+        }
+
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.setAction("com.google.android.googlequicksearchbox.MUSIC_SEARCH");
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -64,6 +97,7 @@ public class SoundSearchTIle extends QSTileImpl<BooleanState> {
             return false;
         }
         return true;
+
     }
 
     @Override
@@ -82,6 +116,7 @@ public class SoundSearchTIle extends QSTileImpl<BooleanState> {
         state.contentDescription = mContext.getString(
                 R.string.quick_settings_sound_search);
         state.icon = ResourceIcon.get(R.drawable.ic_qs_sound_search);
+        state.state = Tile.STATE_INACTIVE;
     }
 
     @Override

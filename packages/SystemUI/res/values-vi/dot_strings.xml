@@ -195,4 +195,6 @@
 	
 	<!-- Sound Search tile -->
     <string name="quick_settings_sound_search">Tìm kiếm âm thanh</string>
+	<string name="quick_settings_sound_search_no_app">Xin lỗi, nhưng điều này không hoạt động nếu bạn không có ứng dụng Tìm kiếm âm thanh</string>
+
 </resources>
