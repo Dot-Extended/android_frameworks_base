@@ -192,4 +192,7 @@
     <string name="gaming_mode_dialog_message">Khi Chế độ Trò chơi được bật, mọi thông báo nổi sẽ bị ẩn và các phím cứng sẽ bị vô hiệu hoá. Mọi thứ sẽ được đặt lại mặc định khi bạn tắt Chế độ Trò chơi.</string>
     <string name="accessibility_quick_settings_gaming_mode_on">Chế độ chơi game bật</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Chế độ chơi game tắt</string>
+	
+	<!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">Tìm kiếm âm thanh</string>
 </resources>
