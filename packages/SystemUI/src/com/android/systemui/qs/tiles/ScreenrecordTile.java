@@ -23,7 +23,7 @@ import android.provider.Settings;
 import android.service.quicksettings.Tile;
 import android.view.WindowManager;
 
-import com.android.internal.util.dotos.DotUtils;
+import com.android.internal.util.dotos.DOTUtils;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
@@ -41,7 +41,7 @@ public class ScreenrecordTile extends QSTileImpl<BooleanState> {
 
     public ScreenrecordTile(QSHost host) {
         super(host);
-		mMode = Settings.System.getIntForUser(mContext.getContentResolver(),
+        mMode = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.SCREENRECORD_QUALITY_MODE, SCREEN_RECORD_LOW_QUALITY,
                 UserHandle.USER_CURRENT);
     }
@@ -74,7 +74,7 @@ public class ScreenrecordTile extends QSTileImpl<BooleanState> {
         } else if (mMode == SCREEN_RECORD_HIGH_QUALITY) {
             mMode = SCREEN_RECORD_LOW_QUALITY;
         }
-		Settings.System.putIntForUser(mContext.getContentResolver(),
+        Settings.System.putIntForUser(mContext.getContentResolver(),
                 Settings.System.SCREENRECORD_QUALITY_MODE, mMode,
                 UserHandle.USER_CURRENT);
     }
@@ -86,7 +86,7 @@ public class ScreenrecordTile extends QSTileImpl<BooleanState> {
         try {
              Thread.sleep(1000); //1s
         } catch (InterruptedException ie) {}
-        EvolutionUtils.takeScreenrecord(mMode);
+        DOTUtils.takeScreenrecord(mMode);
     }
 
     @Override
@@ -101,16 +101,12 @@ public class ScreenrecordTile extends QSTileImpl<BooleanState> {
 
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
-        state.contentDescription =  mContext.getString(
-                R.string.quick_settings_screenrecord_label);
+        state.label = mContext.getString(R.string.quick_settings_screenrecord_label);
         if (mMode == SCREEN_RECORD_LOW_QUALITY) {
-            state.label = mContext.getString(R.string.quick_settings_screenrecord_lq_label);
             state.icon = ResourceIcon.get(R.drawable.ic_qs_screenrecord_lq);
         } else if (mMode == SCREEN_RECORD_MID_QUALITY) {
-            state.label = mContext.getString(R.string.quick_settings_screenrecord_mq_label);
             state.icon = ResourceIcon.get(R.drawable.ic_qs_screenrecord_mq);
         } else if (mMode == SCREEN_RECORD_HIGH_QUALITY) {
-            state.label = mContext.getString(R.string.quick_settings_screenrecord_hq_label);
             state.icon = ResourceIcon.get(R.drawable.ic_qs_screenrecord_hq);
         }
     }

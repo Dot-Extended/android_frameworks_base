@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 2017 ABC rom
- * Copyright (C) 2019 The Evolution X Project
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,29 +20,23 @@ import android.content.Intent;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.service.quicksettings.Tile;
-import android.view.WindowManager;
 
-import com.android.internal.util.dotos.DotUtils;
+import com.android.internal.util.dotos.DOTUtils;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.R;
 
-/** Quick settings tile: Screenrecord **/
-public class ScreenrecordTile extends QSTileImpl<BooleanState> {
+/** Quick settings tile: Screenshot **/
+public class ScreenshotTile extends QSTileImpl<BooleanState> {
 
-    private static final int SCREEN_RECORD_LOW_QUALITY = WindowManager.SCREEN_RECORD_LOW_QUALITY;
-    private static final int SCREEN_RECORD_MID_QUALITY = WindowManager.SCREEN_RECORD_MID_QUALITY;
-    private static final int SCREEN_RECORD_HIGH_QUALITY = WindowManager.SCREEN_RECORD_HIGH_QUALITY;
+    private boolean mRegion;
 
-    private int mMode;
-
-    public ScreenrecordTile(QSHost host) {
+    public ScreenshotTile(QSHost host) {
         super(host);
-        mMode = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.SCREENRECORD_QUALITY_MODE, SCREEN_RECORD_LOW_QUALITY,
-                UserHandle.USER_CURRENT);
+        mRegion = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.SCREENSHOT_DEFAULT_MODE, 0, UserHandle.USER_CURRENT) == 1;
     }
 
     @Override
@@ -61,34 +54,22 @@ public class ScreenrecordTile extends QSTileImpl<BooleanState> {
 
     @Override
     public void handleClick() {
-        switchMode();
-        refreshState();
-    }
-
-
-    private void switchMode() {
-        if (mMode == SCREEN_RECORD_LOW_QUALITY) {
-            mMode = SCREEN_RECORD_MID_QUALITY;
-        } else if (mMode == SCREEN_RECORD_MID_QUALITY) {
-            mMode = SCREEN_RECORD_HIGH_QUALITY;
-        } else if (mMode == SCREEN_RECORD_HIGH_QUALITY) {
-            mMode = SCREEN_RECORD_LOW_QUALITY;
-        }
+        mRegion = !mRegion;
         Settings.System.putIntForUser(mContext.getContentResolver(),
-                Settings.System.SCREENRECORD_QUALITY_MODE, mMode,
+                Settings.System.SCREENSHOT_DEFAULT_MODE, mRegion ? 1 : 0,
                 UserHandle.USER_CURRENT);
+        refreshState();
     }
 
     @Override
     public void handleLongClick() {
         mHost.collapsePanels();
+
         //finish collapsing the panel
         try {
              Thread.sleep(1000); //1s
         } catch (InterruptedException ie) {}
-		
-     DOTUtils.takeScreenrecord(mMode);
-
+        DOTUtils.takeScreenshot(mRegion ? false : true);
     }
 
     @Override
@@ -97,19 +78,26 @@ public class ScreenrecordTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
+    protected void handleUserSwitch(int newUserId) {
+    }
+
+    @Override
     public CharSequence getTileLabel() {
-        return mContext.getString(R.string.quick_settings_screenrecord_label);
+        return mContext.getString(R.string.quick_settings_screenshot_label);
     }
 
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
-        state.label = mContext.getString(R.string.quick_settings_screenrecord_label);
-        if (mMode == SCREEN_RECORD_LOW_QUALITY) {
-            state.icon = ResourceIcon.get(R.drawable.ic_qs_screenrecord_lq);
-        } else if (mMode == SCREEN_RECORD_MID_QUALITY) {
-            state.icon = ResourceIcon.get(R.drawable.ic_qs_screenrecord_mq);
-        } else if (mMode == SCREEN_RECORD_HIGH_QUALITY) {
-            state.icon = ResourceIcon.get(R.drawable.ic_qs_screenrecord_hq);
+        if (mRegion) {
+            state.label = mContext.getString(R.string.quick_settings_region_screenshot_label);
+            state.icon = ResourceIcon.get(R.drawable.ic_qs_region_screenshot);
+            state.contentDescription =  mContext.getString(
+                    R.string.quick_settings_region_screenshot_label);
+        } else {
+            state.label = mContext.getString(R.string.quick_settings_screenshot_label);
+            state.icon = ResourceIcon.get(R.drawable.ic_qs_screenshot);
+            state.contentDescription =  mContext.getString(
+                    R.string.quick_settings_screenshot_label);
         }
     }
 }

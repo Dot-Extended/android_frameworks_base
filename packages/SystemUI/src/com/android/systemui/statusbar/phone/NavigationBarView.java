@@ -43,6 +43,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.SystemProperties;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.support.annotation.ColorInt;
 import android.util.AttributeSet;
 import android.util.Log;

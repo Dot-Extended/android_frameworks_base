@@ -5198,6 +5198,12 @@ public final class Settings {
         /** @hide */
         private static final Validator ONE_HAND_MODE_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
 
+         /**
+         * 0 - fullscreen
+         * 1 - partial
+         * @hide
+         */
+        public static final String SCREENSHOT_DEFAULT_MODE = "screenshot_default_mode";
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
@@ -5285,6 +5291,7 @@ public final class Settings {
             VIBRATE_ON_CALLWAITING,
             DISPLAY_CUTOUT_MODE,
             STOCK_STATUSBAR_IN_HIDE,
+			ONE_HAND_MODE_ENABLED,
         };
 
         /**
@@ -5454,6 +5461,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_CUTOUT_MODE);
             PRIVATE_SETTINGS.add(STOCK_STATUSBAR_IN_HIDE);
             PRIVATE_SETTINGS.add(SWIPE_TO_SCREENSHOT);
+			PRIVATE_SETTINGS.add(ONE_HAND_MODE_ENABLED);	
         }
 
         /**
@@ -5594,6 +5602,7 @@ public final class Settings {
             VALIDATORS.put(DISPLAY_CUTOUT_MODE, DISPLAY_CUTOUT_MODE_VALIDATOR);
             VALIDATORS.put(STOCK_STATUSBAR_IN_HIDE, STOCK_STATUSBAR_IN_HIDE_VALIDATOR);
             VALIDATORS.put(SWIPE_TO_SCREENSHOT, SWIPE_TO_SCREENSHOT_VALIDATOR);
+			VALIDATORS.put(ONE_HAND_MODE_ENABLED, ONE_HAND_MODE_ENABLED_VALIDATOR);
         }
 
         /**
