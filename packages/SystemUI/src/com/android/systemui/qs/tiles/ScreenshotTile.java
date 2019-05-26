@@ -86,7 +86,9 @@ public class ScreenrecordTile extends QSTileImpl<BooleanState> {
         try {
              Thread.sleep(1000); //1s
         } catch (InterruptedException ie) {}
-        EvolutionUtils.takeScreenrecord(mMode);
+		
+     DOTUtils.takeScreenrecord(mMode);
+
     }
 
     @Override
