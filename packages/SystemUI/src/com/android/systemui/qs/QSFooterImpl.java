@@ -28,6 +28,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.RippleDrawable;
 import android.os.Bundle;
 import android.os.UserManager;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
@@ -258,7 +259,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         mSettingsContainer.setVisibility(mQsDisabled ? View.GONE : View.VISIBLE);
         final boolean isDemo = UserManager.isDeviceInDemoMode(mContext);
         mMultiUserSwitch.setVisibility(showUserSwitcher(isDemo) ? View.VISIBLE : View.INVISIBLE);
-        mEdit.setVisibility(isDemo || !mExpanded ? View.INVISIBLE : View.VISIBLE);
+        mEdit.setVisibility(isEditEnabled() ? isDemo || !mExpanded ? View.INVISIBLE : View.VISIBLE : View.GONE);
     }
 
     private boolean showUserSwitcher(boolean isDemo) {
@@ -299,6 +300,11 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         }
     }
 
+    public boolean isEditEnabled() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+            Settings.System.QS_EDIT_TOGGLE, 1) == 1;
+    }
+	
     @Override
     public void onClick(View v) {
          if (v == mSettingsButton) {

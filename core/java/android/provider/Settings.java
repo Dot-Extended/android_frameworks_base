@@ -4736,6 +4736,12 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * Whether to show or hide the edit icon
+         * @hide
+         */
+        public static final String QS_EDIT_TOGGLE = "qs_edit_toggle";
+		
+        /**
          * Whether to enable gaming mode or not
          *
          * @hide
