@@ -27,12 +27,6 @@ import android.widget.Toast;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.util.dotos.DOTUtils;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.service.quicksettings.Tile;
-
-import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.systemui.Dependency;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
@@ -41,63 +35,40 @@ import com.android.systemui.R;
 
 public class SoundSearchTIle extends QSTileImpl<BooleanState> {
 
-
-    private final String soundSearchApp = "com.google.android.googlequicksearchbox";
-
     public SoundSearchTIle(QSHost host) {
         super(host);
     }
 
     @Override
     public int getMetricsCategory() {
-
-       return MetricsEvent.DOTEXTRAS;
+        return MetricsEvent.DOTEXTRAS;
     }
 
     @Override
     public void handleClick() {
         mHost.collapsePanels();
-
         // Shazam
         if (DOTUtils.isPackageInstalled(mContext, "com.shazam.android") || DOTUtils.isPackageInstalled(mContext, "com.shazam.encore.android")) {
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.setAction("com.shazam.android.intent.actions.START_TAGGING");
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             mContext.startActivity(intent);
         // Soundhound
         } else if (DOTUtils.isPackageInstalled(mContext, "com.melodis.midomiMusicIdentifier.freemium") || DOTUtils.isPackageInstalled(mContext, "com.melodis.midomiMusicIdentifier")) {
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.setAction("com.soundhound.android.ID_NOW_EXTERNAL");
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             mContext.startActivity(intent);
         // Google Search Music
         } else if (DOTUtils.isPackageInstalled(mContext, "com.google.android.googlequicksearchbox")) {
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.setAction("com.google.android.googlequicksearchbox.MUSIC_SEARCH");
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             mContext.startActivity(intent);
         } else {
             Toast.makeText(mContext, mContext.getString(
                     R.string.quick_settings_sound_search_no_app), Toast.LENGTH_LONG).show();
         }
-
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.setAction("com.google.android.googlequicksearchbox.MUSIC_SEARCH");
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        mContext.startActivity(intent);
-    }
-
-    @Override
-    public boolean isAvailable() {
-        return isPackageInstalled();
-    }
-
-    private boolean isPackageInstalled(){
-        try {
-            PackageInfo info = mContext.getPackageManager()
-                    .getPackageInfo(soundSearchApp,PackageManager.GET_META_DATA);
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
-        }
-        return true;
-
     }
 
     @Override
