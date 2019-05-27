@@ -4478,6 +4478,14 @@ public final class Settings {
         public static final String SWITCH_STYLE = "switch_style";
 
         /**
+         * 0 - Light
+         * 1 - Dark
+         * 2 - Black
+         * @hide
+         */
+        public static final String NOTIFICATION_STYLE = "notification_style";
+		
+        /**
          * Select various accents to go along with system themes
          *
          * @hide
@@ -5458,6 +5466,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
             PRIVATE_SETTINGS.add(DOZE_ON_CHARGE);
             PRIVATE_SETTINGS.add(QS_HEADER_STYLE);
+			PRIVATE_SETTINGS.add(NOTIFICATION_STYLE);
             PRIVATE_SETTINGS.add(VIBRATE_ON_CONNECT);
             PRIVATE_SETTINGS.add(VIBRATE_ON_DISCONNECT);
             PRIVATE_SETTINGS.add(VIBRATE_ON_CALLWAITING);

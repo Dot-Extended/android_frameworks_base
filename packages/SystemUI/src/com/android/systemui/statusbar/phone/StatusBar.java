@@ -4313,6 +4313,18 @@ public class StatusBar extends SystemUI implements DemoMode,
         ThemeAccentUtils.unlockQsTileStyles(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
     }
 
+    // Switches notification style from stock to custom
+    public void updateNotificationStyle() {
+         int notificationStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
+                 Settings.System.NOTIFICATION_STYLE, 0, mLockscreenUserManager.getCurrentUserId());
+        ThemeAccentUtils.updateNotificationStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), notificationStyle);
+    }
+
+    // Unload all notification styles back to stock
+    public void stockNotificationStyle() {
+        ThemeAccentUtils.stockNotificationStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
+    }
+	
     private void updateDozingState() {
         Trace.traceCounter(Trace.TRACE_TAG_APP, "dozing", mDozing ? 1 : 0);
         Trace.beginSection("StatusBar#updateDozingState");
@@ -5597,6 +5609,9 @@ public class StatusBar extends SystemUI implements DemoMode,
 		   	resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.LESS_BORING_HEADS_UP),
                     false, this, UserHandle.USER_ALL);	
+			resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.NOTIFICATION_STYLE),
+                    false, this, UserHandle.USER_ALL);
 	    }
 
 
@@ -5646,6 +5661,10 @@ public class StatusBar extends SystemUI implements DemoMode,
 			} else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.LESS_BORING_HEADS_UP))) {
                 setUseLessBoringHeadsUp();
+			 } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.NOTIFICATION_STYLE))) {
+                stockNotificationStyle();
+                updateNotificationStyle();
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.QS_HEADER_STYLE))) {
                 stockQSHeaderStyle();

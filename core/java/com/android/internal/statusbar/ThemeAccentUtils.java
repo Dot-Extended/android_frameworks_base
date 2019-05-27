@@ -113,6 +113,13 @@ public class ThemeAccentUtils {
         "com.android.systemui.qstile.badgetwo", // 26
     };
    
+    // Notification themes
+    private static final String[] NOTIFICATION_THEMES = {
+        "com.android.system.notification.light", // 0
+        "com.android.system.notification.dark", // 1
+        "com.android.system.notification.black", // 2
+    };
+	
     // QS header themes
     private static final String[] QS_HEADER_THEMES = {
         "com.android.systemui.qsheader.black", // 0
@@ -144,14 +151,14 @@ public class ThemeAccentUtils {
     public static void updateAccents(IOverlayManager om, int userId, int accentSetting) {
         if (accentSetting == 0) {
             unloadAccents(om, userId);
-        } else if (accentSetting < 20) {
+        } else if (accentSetting < 24) {
             try {
                 om.setEnabled(ACCENTS[accentSetting],
                         true, userId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
-        } else if (accentSetting == 20) {
+        } else if (accentSetting == 24) {
             try {
                 // If using a dark, black or Neo UI theme we use the white accent, otherwise use the black accent
                 if (isUsingDarkTheme(om, userId) || isUsingBlackTheme(om, userId) || isUsingNeoTheme(om, userId)) {
@@ -324,7 +331,34 @@ public class ThemeAccentUtils {
         }
     }
 
+      // Switches notification style to user selected.
+    public static void updateNotificationStyle(IOverlayManager om, int userId, int notificationStyle) {
+        if (notificationStyle == 0) {
+            stockNotificationStyle(om, userId);
+        } else {
+            try {
+                om.setEnabled(NOTIFICATION_THEMES[notificationStyle],
+                        true, userId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change notification theme", e);
+            }
+        }
+    }
 
+    // Switches notification style back to stock.
+    public static void stockNotificationStyle(IOverlayManager om, int userId) {
+        // skip index 0
+        for (int i = 1; i < NOTIFICATION_THEMES.length; i++) {
+            String notificationtheme = NOTIFICATION_THEMES[i];
+            try {
+                om.setEnabled(notificationtheme,
+                        false /*disable*/, userId);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+	
     // Unload all the qs tile styles
     public static void unlockQsTileStyles(IOverlayManager om, int userId) {
         // skip index 0
