@@ -158,7 +158,7 @@ public class ThemeAccentUtils {
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
-        } else if (accentSetting == 24) {
+        } else if (accentSetting == 23) {
             try {
                 // If using a dark, black or Neo UI theme we use the white accent, otherwise use the black accent
                 if (isUsingDarkTheme(om, userId) || isUsingBlackTheme(om, userId) || isUsingNeoTheme(om, userId)) {
