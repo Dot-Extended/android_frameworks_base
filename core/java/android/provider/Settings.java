@@ -4246,6 +4246,12 @@ public final class Settings {
          */
         public static final String POWERMENU_AIRPLANE = "powermenu_airplane";
 
+       /**
+         * Whether to control brightness from status bar
+         * @hide
+         */
+        public static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
+		
          /**
          * Whether to display the power menu dialog while on the lockscreen
          * @hide
@@ -5549,6 +5555,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(SWIPE_TO_SCREENSHOT);
 			PRIVATE_SETTINGS.add(ONE_HAND_MODE_ENABLED);	
 			PRIVATE_SETTINGS.add(THEME_AUTOMATIC_TIME_IS_NIGHT);
+			PRIVATE_SETTINGS.add(STATUS_BAR_BRIGHTNESS_CONTROL);
         }
 
         /**
