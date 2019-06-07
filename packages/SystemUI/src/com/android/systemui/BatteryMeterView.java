@@ -18,6 +18,7 @@ package com.android.systemui;
 import static android.app.StatusBarManager.DISABLE2_SYSTEM_ICONS;
 import static android.app.StatusBarManager.DISABLE_NONE;
 import static android.provider.Settings.System.SHOW_BATTERY_PERCENT;
+import static android.provider.Settings.System.SHOW_BATTERY_ESTIMATE_QQS;
 import static android.provider.Settings.Secure.STATUS_BAR_BATTERY_STYLE;
 
 import android.animation.ArgbEvaluator;
@@ -30,6 +31,7 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Handler;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.ArraySet;
 import android.util.AttributeSet;
@@ -81,6 +83,7 @@ public class BatteryMeterView extends LinearLayout implements
     private boolean mShowPercentAvailable;
 	private boolean mPowerSave;
     private boolean mCharging;
+	private boolean misQsbHeader;
      
     private int mDarkModeSingleToneColor;
     private int mDarkModeBackgroundColor;
@@ -164,7 +167,10 @@ public class BatteryMeterView extends LinearLayout implements
                 getContext().getContentResolver().registerContentObserver(
                         Settings.System.getUriFor(SHOW_BATTERY_PERCENT), false, mSettingObserver,
                         newUserId);
-						updateShowPercent();
+		getContext().getContentResolver().registerContentObserver(
+                        Settings.System.getUriFor(SHOW_BATTERY_ESTIMATE_QQS), false, mSettingObserver,
+                        newUserId);
+		updateShowPercent();
             }
         };
 
@@ -244,6 +250,8 @@ public class BatteryMeterView extends LinearLayout implements
         mUser = ActivityManager.getCurrentUser();
         getContext().getContentResolver().registerContentObserver(
                 Settings.System.getUriFor(SHOW_BATTERY_PERCENT), false, mSettingObserver, mUser);
+	getContext().getContentResolver().registerContentObserver(
+                Settings.System.getUriFor(SHOW_BATTERY_ESTIMATE_QQS), false, mSettingObserver, mUser);
         updateShowPercent();
         Dependency.get(TunerService.class).addTunable(this, STATUS_BAR_BATTERY_STYLE);
         Dependency.get(ConfigurationController.class).addCallback(this);
@@ -303,10 +311,10 @@ public class BatteryMeterView extends LinearLayout implements
     private void updatePercentText() {
          Typeface tf = Typeface.create(FONT_FAMILY, Typeface.NORMAL);
          if (mBatteryController != null && mBatteryPercentView != null) {
-            if (!mShowEstimate || mCharging) {
-                setPercentTextAtCurrentLevel();
-            } else {
+            if (mShowEstimate && misQsbHeader && !mCharging) {
                 mBatteryController.getEstimatedTimeRemainingString(this::onEstimateFetchComplete);
+	    } else {
+                setPercentTextAtCurrentLevel();
             }
 			mBatteryPercentView.setTypeface(tf);
         }
@@ -342,7 +350,7 @@ public class BatteryMeterView extends LinearLayout implements
         int percentageStyle = Settings.System.getIntForUser(getContext().getContentResolver(),
                 SHOW_BATTERY_PERCENT, 1, mUser);
 	    mShowPercent = percentageStyle;
-        boolean showAnyway = alwaysShowPercentage() || mPowerSave || mCharging || mShowEstimate;
+        boolean showAnyway = alwaysShowPercentage() || mPowerSave || mCharging;
         if (!showAnyway
                 && getMeterStyle() == BatteryMeterDrawableBase.BATTERY_STYLE_HIDDEN) {
             // don't show percentage
@@ -392,7 +400,7 @@ public class BatteryMeterView extends LinearLayout implements
         if (mBatteryPercentView == null) {
             mBatteryPercentView = loadPercentView();
             if (mTextColor != 0) mBatteryPercentView.setTextColor(mTextColor);
-            updatePercentText();
+            setShowEstimate();
             addView(mBatteryPercentView,
                     new ViewGroup.LayoutParams(
                             LayoutParams.WRAP_CONTENT,
@@ -482,7 +490,7 @@ public class BatteryMeterView extends LinearLayout implements
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             super.onChange(selfChange, uri);
-            updateShowPercent();
+            setShowEstimate();
         }
     }
 
@@ -490,8 +498,14 @@ public class BatteryMeterView extends LinearLayout implements
         misQsbHeader = true;
     }
 
-    public void setShowEstimate(boolean showEstimate) {
-        mShowEstimate = showEstimate;
+    public void setShowEstimate() {
+        mShowEstimate = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.SHOW_BATTERY_ESTIMATE_QQS, 0, UserHandle.USER_CURRENT) == 1;
+        updatePercentText();
+    }
+
+    public void isQsbHeader() {
+        misQsbHeader = true;
     }
 	
     private boolean alwaysShowPercentage() {
@@ -543,7 +557,7 @@ public class BatteryMeterView extends LinearLayout implements
 
         updateShowPercent();
         scaleBatteryMeterViews();
-        updatePercentText();
+        setShowEstimate();
     }
 	
 	private boolean isBigCircleBattery() {
