@@ -5246,7 +5246,16 @@ public final class Settings {
          * @hide
          */
         public static final String LESS_BORING_HEADS_UP = "less_boring_heads_up";
-		
+	
+	/**
+         * @hide
+         */
+        public static final String SHOW_BATTERY_ESTIMATE_QQS = "show_battery_estimate_qqs";
+
+        /** @hide */
+        private static final Validator SHOW_BATTERY_ESTIMATE_QQS_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+	    
 		/**
          * enable or disable single handed mode
          * @hide
@@ -5415,6 +5424,7 @@ public final class Settings {
             DISPLAY_CUTOUT_MODE,
             STOCK_STATUSBAR_IN_HIDE,
 			ONE_HAND_MODE_ENABLED,
+	    SHOW_BATTERY_ESTIMATE_QQS,
         };
 
         /**
@@ -5587,6 +5597,7 @@ public final class Settings {
 			PRIVATE_SETTINGS.add(ONE_HAND_MODE_ENABLED);	
 			PRIVATE_SETTINGS.add(THEME_AUTOMATIC_TIME_IS_NIGHT);
 			PRIVATE_SETTINGS.add(STATUS_BAR_BRIGHTNESS_CONTROL);
+		PRIVATE_SETTINGS.add(SHOW_BATTERY_ESTIMATE_QQS);
         }
 
         /**
@@ -5728,6 +5739,7 @@ public final class Settings {
             VALIDATORS.put(SWIPE_TO_SCREENSHOT, SWIPE_TO_SCREENSHOT_VALIDATOR);
 			VALIDATORS.put(ONE_HAND_MODE_ENABLED, ONE_HAND_MODE_ENABLED_VALIDATOR);
 			VALIDATORS.put(THEME_AUTOMATIC_TIME_IS_NIGHT, THEME_AUTOMATIC_TIME_IS_NIGHT_VALIDATOR);
+		VALIDATORS.put(SHOW_BATTERY_ESTIMATE_QQS, SHOW_BATTERY_ESTIMATE_QQS_VALIDATOR);
         }
 
         /**
