@@ -22,48 +22,48 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced powermenu -->
-    <string name="global_action_restart_system">重新启动</string>
-    <string name="global_action_restart_advanced">高级重启</string>
+    <string name="global_action_restart_system">重启</string>
+    <string name="global_action_restart_advanced">重启选项</string>
     <string name="global_action_restart_recovery">恢复模式</string>
-    <string name="global_action_restart_bootloader">引导模式</string>
+    <string name="global_action_restart_bootloader">引导程序</string>
     <string name="global_action_restart_ui">系统界面</string>
     <string name="global_action_restart_hot">热重启</string>
-    <string name="global_action_screenshot">屏幕截图</string>
+    <string name="global_action_screenshot">截屏</string>
     <!-- Sound QS Tile -->
-    <string name="quick_settings_sound_label">声音</string>
+    <string name="quick_settings_sound_label">声音选项</string>
     <string name="quick_settings_sound_ring">响铃</string>
     <string name="quick_settings_sound_vibrate">振动</string>
-    <string name="quick_settings_sound_dnd">请勿打扰</string>
+    <string name="quick_settings_sound_dnd">免打扰</string>
     <string name="statusbar_items_title">状态栏图标</string>
     <!-- Lockscreen icons -->
-    <string name="lockscreen_tuner_title">锁屏界面快捷方式</string>
+    <string name="lockscreen_tuner_title">锁屏按钮</string>
     <string name="lockscreen_default">默认</string>
     <string name="lockscreen_hidden">无</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">滑动图标以启动</string>
+    <string name="custom_hint">滑动图标启动</string>
     <!-- Theme tile -->
-    <string name="systemui_theme_style_title">界面样式</string>
-    <string name="systemui_theme_style_auto">自动</string>
-    <string name="systemui_theme_style_light">亮色界面</string>
-    <string name="systemui_theme_style_dark">暗色界面</string>
-    <string name="systemui_theme_style_black">黑色界面</string>
-    <string name="systemui_theme_style_neo">新黑色界面</string>
-    <string name="quick_settings_theme_tile_title">强调色</string>
-    <string name="quick_settings_theme_tile_accent_detail_title">选择颜色</string>
+    <string name="systemui_theme_style_title">UI风格</string>
+    <string name="systemui_theme_style_auto">自动从壁纸选择</string>
+    <string name="systemui_theme_style_light">明亮</string>
+    <string name="systemui_theme_style_dark">暗色</string>
+    <string name="systemui_theme_style_black">黑暗♂</string>
+    <string name="systemui_theme_style_neo">新版黑</string>
+    <string name="quick_settings_theme_tile_title">加速</string>
+    <string name="quick_settings_theme_tile_accent_detail_title">选择样式</string>
     <string name="quick_settings_theme_tile_style_detail_title">选择样式</string>
     <string name="quick_settings_theme_tile_color_default">默认</string>
     <string name="quick_settings_theme_tile_color_red">红色</string>
-    <string name="quick_settings_theme_tile_color_pink">粉红色</string>
-    <string name="quick_settings_theme_tile_color_purple">紫色</string>
+    <string name="quick_settings_theme_tile_color_pink">粉色</string>
+    <string name="quick_settings_theme_tile_color_purple">基佬紫</string>
     <string name="quick_settings_theme_tile_color_deep_purple">深紫色</string>
-    <string name="quick_settings_theme_tile_color_indigo">靛蓝</string>
+    <string name="quick_settings_theme_tile_color_indigo">靛青</string>
     <string name="quick_settings_theme_tile_color_blue">蓝色</string>
-    <string name="quick_settings_theme_tile_color_light_blue">浅蓝色</string>
-    <string name="quick_settings_theme_tile_color_cyan">青色</string>
-    <string name="quick_settings_theme_tile_color_teal">鸭绿色</string>
-    <string name="quick_settings_theme_tile_color_green">绿色</string>
-    <string name="quick_settings_theme_tile_color_light_green">浅绿色</string>
-    <string name="quick_settings_theme_tile_color_lime">黄绿色</string>
+    <string name="quick_settings_theme_tile_color_light_blue">冰蓝色</string>
+    <string name="quick_settings_theme_tile_color_cyan">帽子色</string>
+    <string name="quick_settings_theme_tile_color_teal">水鸭青</string>
+    <string name="quick_settings_theme_tile_color_green">绿♂色</string>
+    <string name="quick_settings_theme_tile_color_light_green">浅绿</string>
+    <string name="quick_settings_theme_tile_color_lime">橙色</string>
     <string name="quick_settings_theme_tile_color_yellow">黄色</string>
     <string name="quick_settings_theme_tile_color_amber">琥珀色</string>
     <string name="quick_settings_theme_tile_color_orange">橙色</string>
@@ -73,39 +73,41 @@
     <string name="quick_settings_theme_tile_color_blue_grey">蓝灰色</string>
     <string name="quick_settings_theme_tile_color_black">黑色</string>
     <string name="quick_settings_theme_tile_color_white">白色</string>
+    <string name="quick_settings_theme_tile_color_qpurple">基佬紫</string>
+    <string name="quick_settings_theme_tile_color_qgreen">绿♂色</string>
     <!-- Caffeine QS Tile -->
-    <string name="quick_settings_caffeine_label">屏幕常亮</string>
-    <string name="accessibility_quick_settings_caffeine_off">关闭屏幕常亮</string>
-    <string name="accessibility_quick_settings_caffeine_on">启动屏幕常亮</string>
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">重启</string>
     <string name="quick_settings_reboot_recovery_label">恢复模式</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">屏幕截图</string>
-    <string name="quick_settings_region_screenshot_label">局部截图</string>
+    <string name="quick_settings_region_screenshot_label">部分屏幕截图</string>
     <!-- Heads Up QS Tile -->
     <string name="quick_settings_heads_up_label">浮动通知</string>
-    <string name="accessibility_quick_settings_heads_up_off">关闭浮动通知</string>
-    <string name="accessibility_quick_settings_heads_up_on">开启浮动通知</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">浮动通知已关闭</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">浮动通知已开启</string>
+    <string name="accessibility_quick_settings_heads_up_off">浮动通知关闭。</string>
+    <string name="accessibility_quick_settings_heads_up_on">浮动通知开启</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">浮动通知已关闭。</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">浮动通知开启。</string>
     <!-- USB Tethering tile -->
-    <string name="accessibility_quick_settings_usb_tether_off">关闭 USB 网络共享</string>
-    <string name="accessibility_quick_settings_usb_tether_on">开启 USB 网络共享</string>
+    <string name="accessibility_quick_settings_usb_tether_off">USB 网络共享关闭</string>
+    <string name="accessibility_quick_settings_usb_tether_on">USB 网络共享开启</string>
     <string name="accessibility_quick_settings_usb_tether_changed_off">USB 网络共享已关闭</string>
-    <string name="accessibility_quick_settings_usb_tether_changed_on">USB 网络共享已开启</string>
-    <string name="quick_settings_usb_tether_label">USB 共享网络</string>
-    <string name="status_bar_data_saver">流量节省模式</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">USB 网络共享开启</string>
+    <string name="quick_settings_usb_tether_label">USB 网络共享</string>
+    <string name="status_bar_data_saver">数据保护</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- HW Keys Tile -->
-    <string name="accessibility_quick_settings_hwkeys_on">实体按键已启用</string>
-    <string name="accessibility_quick_settings_hwkeys_off">实体按键已禁用</string>
-    <string name="quick_settings_hwkeys_label">实体按键</string>
+    <string name="accessibility_quick_settings_hwkeys_on">HW 键开启</string>
+    <string name="accessibility_quick_settings_hwkeys_off">HW 键关闭</string>
+    <string name="quick_settings_hwkeys_label">HW 密钥</string>
     <!-- Screenshot Delete Toast -->
-    <string name="delete_screenshot_toast">屏幕截图已删除</string>
+    <string name="delete_screenshot_toast">截图已删除</string>
     <!-- QS Config -->
-    <string name="qs_menu_item_columns">列数</string>
-    <string name="qs_menu_item_columns_landscape">横屏列数</string>
+    <string name="qs_menu_item_columns">列</string>
+    <string name="qs_menu_item_columns_landscape">列景图</string>
     <string name="qs_menu_item_columns_three">3</string>
     <string name="qs_menu_item_columns_four">4</string>
     <string name="qs_menu_item_columns_five">5</string>
@@ -115,48 +117,48 @@
     <string name="qs_menu_item_columns_nine">9</string>
     <string name="qs_menu_item_reset">重置</string>
     <string name="qs_menu_item_titles">显示标签</string>
-    <string name="qs_menu_item_rows">行数</string>
-    <string name="qs_menu_item_rows_landscape">横屏行数</string>
+    <string name="qs_menu_item_rows">行</string>
+    <string name="qs_menu_item_rows_landscape">行景图</string>
     <string name="qs_menu_item_rows_one">1</string>
     <string name="qs_menu_item_rows_two">2</string>
     <string name="qs_menu_item_rows_three">3</string>
     <string name="qs_menu_item_rows_four">4</string>
-    <string name="qs_menu_item_qs_columns">磁贴列数</string>
+    <string name="qs_menu_item_qs_columns">Quickbar列</string>
     <string name="qs_menu_item_columns_auto">自动</string>
     <!-- Ambient Display Pixel-Like string -->
-    <string name="ambientmusic_songinfo">由 %s的%s</string>
+    <string name="ambientmusic_songinfo">%s by %s</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time">Dash 闪充 (还需 <xliff:g id="charging_time_left" example="4小时2分钟">%s</xliff:g> 充满)</string>
-    <string name="keyguard_plugged_in_dash_charging">Dash 闪充</string>
+    <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash充电</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_turbo_power_time">TurboPower 已连接 (还需 <xliff:g id="charging_time_left">%s</xliff:g> 充满)</string>
+    <string name="keyguard_indication_turbo_power_time">TurboPower 已连接 (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower 已连接</string>
-    <string name="theme_info_title">这是什么?</string>
-    <string name="theme_info_message">主题瓷贴虽然独特但却易于使用，它允许用户更改系统强调色或样式。\n\n想要更改强调色和样式，只需简单地长按瓷贴，然后再次按下即可从所提供的选项中进行选择。</string>
+    <string name="theme_info_title">这是啥子东西？</string>
+    <string name="theme_info_message">Themes tile是一个独特但易于使用的tile，允许用户更改系统重音或样式。\ n \ n要在重音和样式之间切换，只需长按tile，然后再按一次从所提供的选项中进行选择。</string>
     <!-- Advance location quick setting tile -->
     <string name="quick_settings_secondary_location_off"></string>
-    <string name="quick_settings_location_secondary_battery_saving">省电模式</string>
-    <string name="accessibility_quick_settings_location_battery_saving">位置报告：省电模式。</string>
+    <string name="quick_settings_location_secondary_battery_saving">电池省电</string>
+    <string name="accessibility_quick_settings_location_battery_saving">位置报告：电池省电模式。</string>
     <string name="quick_settings_location_secondary_gps_only">仅传感器</string>
-    <string name="accessibility_quick_settings_location_gps_only">位置报告：仅限设备</string>
-    <string name="quick_settings_location_secondary_high_accuracy">高精确度</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">位置报告：高精确度。</string>
+    <string name="accessibility_quick_settings_location_gps_only">位置报告：传感器模式。</string>
+    <string name="quick_settings_location_secondary_high_accuracy">高精度</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">位置报告：精确度高。</string>
     <!-- Navbar Tuner -->
     <string name="preview">预览</string>
-    <string name="keycode">代码</string>
-    <string name="no_home_title">未找到主屏幕按钮</string>
-    <string name="no_home_message">要在此设备上导航，您必须使用主屏幕按钮。请先添加主屏幕按钮，然后再保存。</string>
-    <string name="clipboard_description">您可以利用“剪贴板”按钮将相应内容直接拖动到剪贴板中。剪贴板中有内容时，您也可以将剪贴板中的内容直接拖出来。</string>
-    <string name="keycode_description">您可以利用“键值”按钮将键盘按键添加到导航栏中。只要按下这些按钮，按钮即可模仿所选键盘按键执行相应的操作。要使用这项功能，您必须先为按钮选择相应的按键，然后再选择要在按钮上显示的图片。</string>
-    <string name="start">执行时间</string>
-    <string name="center">居中</string>
+    <string name="keycode">密钥代码</string>
+    <string name="no_home_title">找不到主页按钮</string>
+    <string name="no_home_message">需要一个主按钮来导航此设备。请保存前添加一个主按钮。</string>
+    <string name="clipboard_description">剪贴板允许项目直接拖放到剪贴板。当当前，项目也可直接拖离剪贴板。</string>
+    <string name="keycode_description">键码按钮允许将键盘键添加到导航栏。 按下时，它们会模拟选定的键盘键。 首先，必须为按钮选择键，然后在按钮上显示图像。</string>
+    <string name="start">开始</string>
+    <string name="center">中心</string>
     <string name="end">结束</string>
-    <string name="space">空格键</string>
-    <string name="menu_ime">菜单 / 键盘切换器</string>
-    <string name="select_button">选择要添加的按钮</string>
+    <string name="space">间隔</string>
+    <string name="menu_ime">菜单/键盘切换器</string>
+    <string name="select_button">选择要添加按钮</string>
     <string name="add_button">添加按钮</string>
-    <string name="save">保存​​</string>
-    <string name="reset">保存​​</string>
+    <string name="save">保存</string>
+    <string name="reset">重置</string>
     <string name="select_keycode">选择键盘按钮</string>
     <string name="left">左</string>
     <string name="right">右</string>
@@ -164,6 +166,74 @@
     <string name="navbar_editor_summary">配置导航栏</string>
     <string name="menu_ime_always_show">菜单</string>
     <string name="search">搜索</string>
-    <string name="screenshot_abort_title">无屏幕截图</string>
-    <string name="screenshot_abort_text">操作中止。</string>
+    <string name="screenshot_abort_title">没有截图</string>
+    <string name="screenshot_abort_text">操作已中止。</string>
+    <!-- Always on Display Tile -->
+    <string name="quick_settings_always_on_display_label">总是显示</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">主动显示</string>
+    <string name="accessibility_quick_settings_ambient_display_off">主动显示关闭。</string>
+    <string name="accessibility_quick_settings_ambient_display_on">主动显示开启。</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">主动显示已关闭。</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">主动显示已打开。</string>
+    <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">反转布局</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">阅读模式</string>
+    <string name="accessibility_quick_settings_reading_mode_on">阅读模式开启</string>
+    <string name="accessibility_quick_settings_reading_mode_off">阅读模式关闭</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">阅读模式已打开。</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">阅读模式已关闭。</string>
+    <!-- AOD media indication -->
+    <string name="music_controls_no_title">无标题</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">游戏模式</string>
+    <string name="gaming_mode_tile_toast">已启用游戏模式</string>
+    <string name="gaming_mode_tile_toast_disabled">游戏模式已禁用</string>
+    <string name="gaming_mode_dialog_title">游戏模式</string>
+    <string name="gaming_mode_dialog_message">启用游戏模式后，您的响铃模式将变为振动模式，所有浮动通知将被禁用，三大金刚健键将被关闭（如果有）。 音量将增加到最大值。 退出游戏模式后，所有禁用的设置将恢复为原样。</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">游戏模式开启</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">游戏模式关闭</string>
+    <!-- Screenrecord Notification Ticker -->
+    <string name="screenrecord_notif_ticker">录屏已经开始了</string>
+    <string name="screenrecord_notif_final_ticker">录屏成功</string>
+    <!-- Screenrecord notification title -->
+    <string name="screenrecord_notif_title">录制屏幕</string>
+    <!-- Screenrecord notification action: Stop -->
+    <string name="screenrecord_notif_stop">停止</string>
+    <string name="screenrecord_notif_completed">录屏成功</string>
+    <!-- Screenrecord notification action: show/hide pointer -->
+    <string name="screenrecord_notif_pointer_on">显示点</string>
+    <string name="screenrecord_notif_pointer_off">隐藏点</string>
+    <!-- Screen record notification error title -->
+    <string name="screenrecord_notif_error">无法录屏</string>
+    <string name="notification_channel_screenrecord">录屏记录</string>
+    <string name="screenrecord_hide_hint">隐藏提示</string>
+    <string name="screenrecord_show_hint">显示提示</string>
+    <!-- Screen record QS tile -->
+    <string name="quick_settings_screenrecord_label">录屏</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">声音搜索</string>
+    <string name="quick_settings_sound_search_no_app">不好意思，如果您没有声音搜索应用，这将毫无卵用。</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">指南针</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">初始化\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">指南针关闭。</string>
+    <string name="accessibility_quick_settings_compass_on">指南针开启。</string>
+    <string name="accessibility_quick_settings_compass_changed_off">指南针已关闭。</string>
+    <string name="accessibility_quick_settings_compass_changed_on">指南针开启。</string>
+    <string name="quick_settings_compass_N">北</string>
+    <string name="quick_settings_compass_NE">东北</string>
+    <string name="quick_settings_compass_E">东</string>
+    <string name="quick_settings_compass_SE">东南</string>
+    <string name="quick_settings_compass_S">南</string>
+    <string name="quick_settings_compass_SW">西南</string>
+    <string name="quick_settings_compass_W">西</string>
+    <string name="quick_settings_compass_NW">西北</string>
+    <!-- OneHand mode QS tile -->
+    <string name="qs_onehand_label">OneHand 模式</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">智能像素</string>
+    <string name="quick_settings_smart_pixels_on_power_save">自动启用智能像素</string>
 </resources>

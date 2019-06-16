@@ -20,14 +20,63 @@
     <string name="reboot_title">Перезагрузка</string>
     <string name="reboot_message">Перезагрузка системы</string>
     <!-- SystemUI Restart -->
-    <string name="systemui_restart_title">Необходима перезагрузка интерфейса</string>
-    <string name="systemui_restart_message">Чтобы все изменения вступили в силу, требуется перезагрузка интерфейса. Перезагрузить интерфейс?</string>
+    <string name="systemui_restart_title">Требуется перезапуск SystemUI</string>
+    <string name="systemui_restart_message">Для применения изменений требуется перезапуск SystemUI. Перезапустить SystemUI сейчас?</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_fakePackageSignature">Подмена подписи приложения</string>
+    <string name="permlab_fakePackageSignature">Подпись фальшивого пакета</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_fakePackageSignature">Разрешать приложениям обходить систему безопасности, выдавая себя за другое приложение. Вредоносные приложения могут использовать это для доступа к частным данным. Предоставляйте это разрешение на свой страх и риск!</string>
+    <string name="permdesc_fakePackageSignature">Позволяет приложению притворяться другим приложением. Вредоносные приложения могут использовать получить доступ к личным данным. Предоставляйте это разрешение с осторожностью!</string>
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_toggleNavigationEditor">управление редактором панели навигации</string>
+    <string name="permlab_toggleNavigationEditor">редактор навигационной навигации</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_toggleNavigationEditor">Позволяет приложению управлять панелью навигации.</string>
+    <string name="permdesc_toggleNavigationEditor">Позволяет приложению управлять редактором панели навигации.</string>
+    <!-- Font service -->
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">доступ к менеджеру шрифтов</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Приложение сможет получить доступ к менеджеру шрифтов.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Длительное нажатие кнопки питания для взаимодействия</string>
+    <!-- Defines the sysfs attribute path used by pocket bridge
+        to communicate pocket state to the pocket judge kernel driver. -->
+    <string name="config_pocketBridgeSysfsInpocket"></string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Автоматически</string>
+    <string name="live_display_auto_summary">Автоматически регулировать цветовую температуру экрана после заката и восхода солнца</string>
+    <string name="live_display_off">Выкл</string>
+    <string name="live_display_off_summary">Отключить все настройки</string>
+    <string name="live_display_day">День</string>
+    <string name="live_display_day_summary">Использовать только настройки дня</string>
+    <string name="live_display_night">Ночь</string>
+    <string name="live_display_night_summary">Использовать только ночные настройки</string>
+    <string name="live_display_outdoor">Внешняя (яркое солнце)</string>
+    <string name="live_display_outdoor_summary">Использовать только внешние настройки</string>
+    <string name="live_display_hint">LiveDisplay может помочь уменьшить нагрузку на глаза и помочь вам уснуть ночью. Нажмите здесь, чтобы попробовать!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay выкл.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: автоматически.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: дневной режим.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: ночной режим.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: наружный режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay выключен.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay изменен на режим авто.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay изменен на режим дня.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay изменен на ночной режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay изменен на внешний режим.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">Затухание</string>
+    <string name="animation_slide_right">Сдвиг вправо</string>
+    <string name="animation_slide_left">Сдвиг влево</string>
+    <string name="animation_slide_right_no_fade">Сдвиг вправо (без затухания)</string>
+    <string name="animation_slide_left_no_fade">Сдвиг влево (без затухания)</string>
+    <string name="animation_slide_up">Сдвиг снизу</string>
+    <string name="animation_slide_down">Сдвиг вверху</string>
+    <string name="animation_default">По умолчанию</string>
+    <string name="animation_translucent">Полупрозрачный</string>
+    <string name="animation_grow_shrink">Увеличение (сверху)</string>
+    <string name="animation_grow_shrink_center">Увеличение (центр)</string>
+    <string name="animation_grow_shrink_bottom">Увеличение (снизу)</string>
+    <string name="animation_grow_shrink_left">Увеличение (слева)</string>
+    <string name="animation_grow_shrink_right">Увеличение (справа)</string>
+    <string name="animation_random">Случайный</string>
+    <string name="action_null">Пустой</string>
 </resources>

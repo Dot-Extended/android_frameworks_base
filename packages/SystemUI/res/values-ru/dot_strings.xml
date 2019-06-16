@@ -26,31 +26,31 @@
     <string name="global_action_restart_advanced">Расширенная перезагрузка</string>
     <string name="global_action_restart_recovery">Рекавери</string>
     <string name="global_action_restart_bootloader">Загрузчик</string>
-    <string name="global_action_restart_ui">Системный интерфейс</string>
-    <string name="global_action_restart_hot">Быстрая</string>
-    <string name="global_action_screenshot">Снимок экрана</string>
+    <string name="global_action_restart_ui">Интерфейс системы</string>
+    <string name="global_action_restart_hot">Горячая</string>
+    <string name="global_action_screenshot">Скриншот</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Звук</string>
-    <string name="quick_settings_sound_ring">Звонок</string>
+    <string name="quick_settings_sound_ring">Круг</string>
     <string name="quick_settings_sound_vibrate">Вибрация</string>
     <string name="quick_settings_sound_dnd">Не беспокоить</string>
     <string name="statusbar_items_title">Значки строки состояния</string>
     <!-- Lockscreen icons -->
     <string name="lockscreen_tuner_title">Ярлыки экрана блокировки</string>
     <string name="lockscreen_default">По умолчанию</string>
-    <string name="lockscreen_hidden">Ничего</string>
+    <string name="lockscreen_hidden">Нет</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Проведите пальцем от иконки для запуска</string>
+    <string name="custom_hint">Свайпните от значка для запуска</string>
     <!-- Theme tile -->
-    <string name="systemui_theme_style_title">Стиль интерфейса</string>
-    <string name="systemui_theme_style_auto">Автоматический</string>
+    <string name="systemui_theme_style_title">Темы</string>
+    <string name="systemui_theme_style_auto">Автоматически</string>
     <string name="systemui_theme_style_light">Светлый интерфейс</string>
-    <string name="systemui_theme_style_dark">Тёмный интерфейс</string>
+    <string name="systemui_theme_style_dark">Темный интерфейс</string>
     <string name="systemui_theme_style_black">Чёрный интерфейс</string>
-    <string name="systemui_theme_style_neo">Неоново-чёрный интерфейс</string>
+    <string name="systemui_theme_style_neo">Нео-черный интерфейс</string>
     <string name="quick_settings_theme_tile_title">Акцент</string>
-    <string name="quick_settings_theme_tile_accent_detail_title">Выберите цвет</string>
-    <string name="quick_settings_theme_tile_style_detail_title">Выберите стиль</string>
+    <string name="quick_settings_theme_tile_accent_detail_title">Выбрать цвет</string>
+    <string name="quick_settings_theme_tile_style_detail_title">Выбрать стиль</string>
     <string name="quick_settings_theme_tile_color_default">По умолчанию</string>
     <string name="quick_settings_theme_tile_color_red">Красный</string>
     <string name="quick_settings_theme_tile_color_pink">Розовый</string>
@@ -59,52 +59,54 @@
     <string name="quick_settings_theme_tile_color_indigo">Индиго</string>
     <string name="quick_settings_theme_tile_color_blue">Синий</string>
     <string name="quick_settings_theme_tile_color_light_blue">Светло-синий</string>
-    <string name="quick_settings_theme_tile_color_cyan">Бирюзовый</string>
-    <string name="quick_settings_theme_tile_color_teal">Морской</string>
+    <string name="quick_settings_theme_tile_color_cyan">Циан</string>
+    <string name="quick_settings_theme_tile_color_teal">Сине-зеленый</string>
     <string name="quick_settings_theme_tile_color_green">Зеленый</string>
-    <string name="quick_settings_theme_tile_color_light_green">Светло-зелёный</string>
-    <string name="quick_settings_theme_tile_color_lime">Лаймовый</string>
-    <string name="quick_settings_theme_tile_color_yellow">Жёлтый</string>
+    <string name="quick_settings_theme_tile_color_light_green">Светло-зеленый</string>
+    <string name="quick_settings_theme_tile_color_lime">Лайм</string>
+    <string name="quick_settings_theme_tile_color_yellow">Желтый</string>
     <string name="quick_settings_theme_tile_color_amber">Янтарный</string>
     <string name="quick_settings_theme_tile_color_orange">Оранжевый</string>
-    <string name="quick_settings_theme_tile_color_deep_orange">Тёмно-оранжевый</string>
+    <string name="quick_settings_theme_tile_color_deep_orange">Темно-оранжевый</string>
     <string name="quick_settings_theme_tile_color_brown">Коричневый</string>
     <string name="quick_settings_theme_tile_color_grey">Серый</string>
     <string name="quick_settings_theme_tile_color_blue_grey">Сине-серый</string>
     <string name="quick_settings_theme_tile_color_black">Чёрный</string>
     <string name="quick_settings_theme_tile_color_white">Белый</string>
+    <string name="quick_settings_theme_tile_color_qpurple">Q фиолетовый</string>
+    <string name="quick_settings_theme_tile_color_qgreen">Q Зеленый</string>
     <!-- Caffeine QS Tile -->
-    <string name="quick_settings_caffeine_label">Запрет сна</string>
-    <string name="accessibility_quick_settings_caffeine_off">Запрет сна отключен</string>
-    <string name="accessibility_quick_settings_caffeine_on">Запрет сна включён</string>
+    <string name="quick_settings_caffeine_label">Кофеиновый</string>
+    <string name="accessibility_quick_settings_caffeine_off">Кофеин выкл</string>
+    <string name="accessibility_quick_settings_caffeine_on">Кофеин вкл</string>
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Перезагрузка</string>
     <string name="quick_settings_reboot_recovery_label">Рекавери</string>
     <!-- Screenshot QS tile -->
-    <string name="quick_settings_screenshot_label">Снимок экрана</string>
-    <string name="quick_settings_region_screenshot_label">Скриншот выбранной области экрана</string>
+    <string name="quick_settings_screenshot_label">Скриншот</string>
+    <string name="quick_settings_region_screenshot_label">Частичный скриншот</string>
     <!-- Heads Up QS Tile -->
-    <string name="quick_settings_heads_up_label">Всплывающие уведомления</string>
-    <string name="accessibility_quick_settings_heads_up_off">Всплывающие уведомления выключены.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Всплывающие уведомления включены.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Всплывающие уведомления были выключены.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Всплывающие уведомления были включены.</string>
+    <string name="quick_settings_heads_up_label">Всплывающие</string>
+    <string name="accessibility_quick_settings_heads_up_off">Всплывающие уведомления выкл.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Всплывающие уведомления.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Всплывающие уведомления выключены.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Всплывающие уведомления включены.</string>
     <!-- USB Tethering tile -->
-    <string name="accessibility_quick_settings_usb_tether_off">Выключить USB-модем</string>
-    <string name="accessibility_quick_settings_usb_tether_on">Включить USB-модем</string>
+    <string name="accessibility_quick_settings_usb_tether_off">USB-модем выкл</string>
+    <string name="accessibility_quick_settings_usb_tether_on">USB-модем включен</string>
     <string name="accessibility_quick_settings_usb_tether_changed_off">USB-модем выключен</string>
     <string name="accessibility_quick_settings_usb_tether_changed_on">USB-модем включен</string>
     <string name="quick_settings_usb_tether_label">USB-модем</string>
-    <string name="status_bar_data_saver">Экономия трафика</string>
+    <string name="status_bar_data_saver">Сохранение данных</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- HW Keys Tile -->
-    <string name="accessibility_quick_settings_hwkeys_on">Аппаратные кнопки включены</string>
-    <string name="accessibility_quick_settings_hwkeys_off">Аппаратные кнопки выключены</string>
-    <string name="quick_settings_hwkeys_label">Аппаратные кнопки</string>
+    <string name="accessibility_quick_settings_hwkeys_on">HW keys вкл</string>
+    <string name="accessibility_quick_settings_hwkeys_off">HW keys выкл</string>
+    <string name="quick_settings_hwkeys_label">HW keys</string>
     <!-- Screenshot Delete Toast -->
-    <string name="delete_screenshot_toast">Снимок экрана удалён</string>
+    <string name="delete_screenshot_toast">Скриншот удален</string>
     <!-- QS Config -->
-    <string name="qs_menu_item_columns">Столбцы</string>
+    <string name="qs_menu_item_columns">Колонки</string>
     <string name="qs_menu_item_columns_landscape">Столбцы (альбом)</string>
     <string name="qs_menu_item_columns_three">3</string>
     <string name="qs_menu_item_columns_four">4</string>
@@ -113,10 +115,10 @@
     <string name="qs_menu_item_columns_seven">7</string>
     <string name="qs_menu_item_columns_eight">8</string>
     <string name="qs_menu_item_columns_nine">9</string>
-    <string name="qs_menu_item_reset">Сбросить</string>
+    <string name="qs_menu_item_reset">Сброс</string>
     <string name="qs_menu_item_titles">Показывать подписи</string>
     <string name="qs_menu_item_rows">Строки</string>
-    <string name="qs_menu_item_rows_landscape">Строки (ландшафт)</string>
+    <string name="qs_menu_item_rows_landscape">Строки (альбом)</string>
     <string name="qs_menu_item_rows_one">1</string>
     <string name="qs_menu_item_rows_two">2</string>
     <string name="qs_menu_item_rows_three">3</string>
@@ -127,36 +129,36 @@
     <string name="ambientmusic_songinfo">%s от %s</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time">Быстрая зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до полной зарядки)</string>
-    <string name="keyguard_plugged_in_dash_charging">Быстрая зарядка</string>
+    <string name="keyguard_plugged_in_dash_charging">Быстра зарядка</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">Быстрая зарядка подключена (<xliff:g id="charging_time_left">%s</xliff:g> до полной зарядки)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">Быстрая зарядка подключена</string>
-    <string name="theme_info_title">Что это такое?</string>
+    <string name="theme_info_title">Что это?</string>
     <string name="theme_info_message">Плитка \"Темы\" - это уникальная, но простая в использовании плитка, которая позволяет пользователю изменять системный оттенок или стиль.\n\nЧтобы переключиться между оттенками и стилями, просто удерживайте плитку, а затем ещё раз нажмите на неё, чтобы выбрать из предложенных вариантов.</string>
     <!-- Advance location quick setting tile -->
     <string name="quick_settings_secondary_location_off"></string>
-    <string name="quick_settings_location_secondary_battery_saving">Экономия заряда</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Определение местоположения: режим энергосбережения.</string>
-    <string name="quick_settings_location_secondary_gps_only">Только датчики GPS</string>
-    <string name="accessibility_quick_settings_location_gps_only">Определение местоположения: только GPS.</string>
+    <string name="quick_settings_location_secondary_battery_saving">Экономия батареи</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Определение местоположения: режим экономии батареи.</string>
+    <string name="quick_settings_location_secondary_gps_only">Только сенсоры</string>
+    <string name="accessibility_quick_settings_location_gps_only">Определение местоположения: только датчики.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Высокая точность</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Определение местоположения: режим высокой точности.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Отчет о местоположении: режим высокой точности.</string>
     <!-- Navbar Tuner -->
     <string name="preview">Предпросмотр</string>
-    <string name="keycode">Код клавиши</string>
-    <string name="no_home_title">Кнопка \"Домой\" не найдена</string>
-    <string name="no_home_message">Кнопка \"Домой\" необходима для управления устройством. Пожалуйста добавьте кнопку \"Домой\" перед сохранением.</string>
-    <string name="clipboard_description">Буфер обмена позволяет копировать элементы прямиком в буфер обмена. Элементы также могут быть скопированы из буфера обмена.</string>
-    <string name="keycode_description">Код клавиши позволяют добавлять клавиши клавиатуры на панель навигации. При нажатии они эмулируют выбранную клавишу. Сначала нужно назначить клавишу на кнопку, затем выбрать изображение для неё.</string>
-    <string name="start">В начале</string>
-    <string name="center">По центру</string>
-    <string name="end">В конце</string>
+    <string name="keycode">Ключ-код</string>
+    <string name="no_home_title">Кнопка Домой не найдена</string>
+    <string name="no_home_message">Кнопка \"Домой\" должна быть включена для управления этим устройством. Пожалуйста, добавьте кнопку \"Домой\" перед сохранением.</string>
+    <string name="clipboard_description">Буфер обмена позволяет перетаскивать элементы непосредственно в буфер обмена. При наличии элементы могут быть также перетасованы непосредственно из буфера обмена.</string>
+    <string name="keycode_description">Кнопки клавиш клавиш позволяют добавлять клавиши клавиатуры в панель навигации. При нажатии они эмулируют выбранную клавишу клавиатуры. Сначала необходимо выбрать клавишу, затем изображение будет показано на кнопке.</string>
+    <string name="start">Начало</string>
+    <string name="center">Центр</string>
+    <string name="end">Конец</string>
     <string name="space">Разделитель</string>
-    <string name="menu_ime">Меню / Переключение раскладки</string>
+    <string name="menu_ime">Меню / Переключатель клавиатуры</string>
     <string name="select_button">Выберите кнопку для добавления</string>
     <string name="add_button">Добавить кнопку</string>
     <string name="save">Сохранить</string>
-    <string name="reset">Сбросить</string>
+    <string name="reset">Сброс</string>
     <string name="select_keycode">Выберите кнопку клавиатуры</string>
     <string name="left">Слева</string>
     <string name="right">Справа</string>
@@ -164,6 +166,74 @@
     <string name="navbar_editor_summary">Настроить панель навигации</string>
     <string name="menu_ime_always_show">Меню</string>
     <string name="search">Поиск</string>
-    <string name="screenshot_abort_title">Снимок экрана не был создан</string>
+    <string name="screenshot_abort_title">Скриншот не был сделан</string>
     <string name="screenshot_abort_text">Операция прервана.</string>
+    <!-- Always on Display Tile -->
+    <string name="quick_settings_always_on_display_label">Always on display</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ambient display</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient display выкл.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient display включен.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">LiveDisplay выключен.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display включен.</string>
+    <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">Инвертировать макет</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Режим чтения</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Режим чтения включен.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Режим чтения выключен.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Режим чтения включен.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Режим чтения выключен.</string>
+    <!-- AOD media indication -->
+    <string name="music_controls_no_title">Нет заголовка</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">Игровой режим</string>
+    <string name="gaming_mode_tile_toast">Игровой режим включен</string>
+    <string name="gaming_mode_tile_toast_disabled">Игровой режим отключен</string>
+    <string name="gaming_mode_dialog_title">Игровой режим</string>
+    <string name="gaming_mode_dialog_message">При включенном режиме, режим звонка будет сменен в режим вибрации, все сообщения, появляющиеся в результате вызова, будут отключены, а аппаратные ключи будут отключены. Громкость медиафайлов будет увеличена до максимального значения. Все отключенные настройки будут сброшены по умолчанию, когда вы закончите игру.</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Игровой режим включен</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Игровой режим выключен</string>
+    <!-- Screenrecord Notification Ticker -->
+    <string name="screenrecord_notif_ticker">Запись экрана</string>
+    <string name="screenrecord_notif_final_ticker">Запись экрана завершена</string>
+    <!-- Screenrecord notification title -->
+    <string name="screenrecord_notif_title">Запись экрана</string>
+    <!-- Screenrecord notification action: Stop -->
+    <string name="screenrecord_notif_stop">Стоп</string>
+    <string name="screenrecord_notif_completed">Запись экрана завершена</string>
+    <!-- Screenrecord notification action: show/hide pointer -->
+    <string name="screenrecord_notif_pointer_on">Показать указатель</string>
+    <string name="screenrecord_notif_pointer_off">Скрыть указатель</string>
+    <!-- Screen record notification error title -->
+    <string name="screenrecord_notif_error">Не удается записать экран</string>
+    <string name="notification_channel_screenrecord">Записи экрана</string>
+    <string name="screenrecord_hide_hint">Скрыть подсказку</string>
+    <string name="screenrecord_show_hint">Показать подсказку</string>
+    <!-- Screen record QS tile -->
+    <string name="quick_settings_screenrecord_label">Запись экрана</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">Поиск звука</string>
+    <string name="quick_settings_sound_search_no_app">Извините, но это не работает, если у вас нет приложения для поиска звука.</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Компас</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Инициализация\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Компас выкл.</string>
+    <string name="accessibility_quick_settings_compass_on">Компас включен.</string>
+    <string name="accessibility_quick_settings_compass_changed_off">Компас выключен.</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Компас включен.</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NE</string>
+    <string name="quick_settings_compass_E">E</string>
+    <string name="quick_settings_compass_SE">SE</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SW</string>
+    <string name="quick_settings_compass_W">W</string>
+    <string name="quick_settings_compass_NW">NW</string>
+    <!-- OneHand mode QS tile -->
+    <string name="qs_onehand_label">Управление одной рукой</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Smart Pixels</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Автозапуск Smart Pixels</string>
 </resources>
